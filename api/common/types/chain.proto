@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package io.candysea.common.types;
+
+// TODO(JuoCode): consider how to handle currency symbol
+enum Chain {
+  CHAIN_UNSPECIFIED = 0;
+  POLYGON = 1;
+  MUMBAI = 2;
+}
