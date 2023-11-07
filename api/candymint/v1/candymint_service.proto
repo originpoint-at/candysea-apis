@@ -107,6 +107,7 @@ message SyncCollectionOnChainDataRequest {
   string contract_address = 3;
   float price = 4;
   int32 supply_count = 5;
+  string transaction_hash = 6;
 }
 
 message ListReleasesRequest {
