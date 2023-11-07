@@ -13,7 +13,7 @@ service CandyMintService {
   rpc GetCollection (GetCollectionRequest) returns (Collection) {};
   rpc ListCollections (ListCollectionsRequest) returns (ListCollectionsResponse) {};
   rpc UpdateCollection (UpdateCollectionRequest) returns (Collection) {};
-  rpc UpdateCollectionMetadata (UpdateCollectionMetadataRequest) returns (Collection) {};
+  rpc SyncCollectionOnChainData (SyncCollectionOnChainDataRequest) returns (Collection) {};
   rpc ListReleases (ListReleasesRequest) returns (ListReleasesResponse) {};
   rpc ListNFTs (ListNFTsRequest) returns (ListNFTsResponse) {};
   rpc GetNFT (GetNFTRequest) returns (NFT) {};
@@ -32,12 +32,14 @@ message Collection {
   // readonly
   io.candysea.common.types.Chain chain = 9;
   // readonly
-  float price = 10;
+  string contract_address = 10;
   // readonly
-  int32 supply_count = 11;
-  Release lastest_release = 12;
-  google.protobuf.Timestamp create_time = 13;
-  google.protobuf.Timestamp update_time = 14;
+  float price = 11;
+  // readonly
+  int32 supply_count = 12;
+  Release lastest_release = 13;
+  google.protobuf.Timestamp create_time = 14;
+  google.protobuf.Timestamp update_time = 15;
 }
 
 message Release {
@@ -99,11 +101,12 @@ message UpdateCollectionRequest {
   string cover_file_id = 4;
 }
 
-message UpdateCollectionMetadataRequest {
+message SyncCollectionOnChainDataRequest {
   string name = 1;
   io.candysea.common.types.Chain chain = 2;
-  float price = 3;
-  int32 supply_count = 4;
+  string contract_address = 3;
+  float price = 4;
+  int32 supply_count = 5;
 }
 
 message ListReleasesRequest {
