@@ -9,6 +9,7 @@ option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
 service CandyMintService {
+  rpc LoginWithWallet (LoginWithWalletRequest) returns (LoginWithWalletResponse) {};
   rpc CreateCollection (CreateCollectionRequest) returns (Collection) {};
   rpc GetCollection (GetCollectionRequest) returns (Collection) {};
   rpc ListCollections (ListCollectionsRequest) returns (ListCollectionsResponse) {};
@@ -17,6 +18,26 @@ service CandyMintService {
   rpc ListReleases (ListReleasesRequest) returns (ListReleasesResponse) {};
   rpc ListNFTs (ListNFTsRequest) returns (ListNFTsResponse) {};
   rpc GetNFT (GetNFTRequest) returns (NFT) {};
+}
+
+message LoginWithWalletRequest {
+  string polygon_address = 100;
+  string signature = 2;
+  string message = 3;
+  google.protobuf.Timestamp timestamp = 4;
+
+  reserved 1;
+  // The address field should be structured as a message that contains essential
+  // details such as the network, chain id and signature algorithm and other
+  // relevant information.
+  reserved "address";
+}
+
+message LoginWithWalletResponse {
+  string access_token = 1;
+  
+  reserved 2;
+  reserved "refresh_token";
 }
 
 message Collection {
@@ -135,4 +156,3 @@ message ListNFTsResponse {
 message GetNFTRequest {
   string token_id = 2;
 }
-
