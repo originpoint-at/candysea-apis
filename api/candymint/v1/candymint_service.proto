@@ -118,7 +118,7 @@ message UpdateCollectionRequest {
 
 message UpdateCollectionMetadataRequest {
   string id = 1;
-  string name = 2;
+  string display_name = 2;
   io.candysea.common.types.Chain chain = 3;
   float price = 4;
   int32 supply_count = 5;
