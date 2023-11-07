@@ -1,0 +1,8 @@
+version: v1
+plugins:
+  - plugin: buf.build/bufbuild/es
+    out: generated/es
+  - plugin: buf.build/connectrpc/es
+    out: generated/es
+  - plugin: buf.build/connectrpc/query-es
+    out: generated/es
