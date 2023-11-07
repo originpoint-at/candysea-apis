@@ -7,6 +7,7 @@ import "google/protobuf/timestamp.proto";
 
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
+option go_package = "grpc/api/candymint/v1";
 
 service CandyMintService {
   rpc CreateCollection (CreateCollectionRequest) returns (Collection) {};
@@ -93,17 +94,19 @@ message ListCollectionsResponse {
 }
 
 message UpdateCollectionRequest {
-  string name = 1;
-  string display_name = 2;
-  string description = 3;
-  string cover_file_id = 4;
+  string id = 1;
+  string name = 2;
+  string display_name = 3;
+  string description = 4;
+  string cover_file_id = 5;
 }
 
 message UpdateCollectionMetadataRequest {
-  string name = 1;
-  io.candysea.common.types.Chain chain = 1;
-  float price = 2;
-  int32 supply_count = 3;
+  string id = 1;
+  string name = 2;
+  io.candysea.common.types.Chain chain = 3;
+  float price = 4;
+  int32 supply_count = 5;
 }
 
 message ListReleasesRequest {
@@ -129,6 +132,7 @@ message ListNFTsResponse {
 }
 
 message GetNFTRequest {
+  string collection_id = 1;
   string token_id = 2;
 }
 
