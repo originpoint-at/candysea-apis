@@ -50,7 +50,7 @@ message Collection {
   // readonly
   float price = 10;
   // readonly
-  int32 supply_count = 11;
+  int32 max_supply_count = 11;
   Release latest_release = 12;
   google.protobuf.Timestamp create_time = 13;
   google.protobuf.Timestamp update_time = 14;
@@ -122,7 +122,7 @@ message SyncCollectionOnChainDataRequest {
   io.candysea.common.types.Chain chain = 3;
   string contract_address = 4;
   float price = 5;
-  int32 supply_count = 6;
+  int32 max_supply_count = 6;
   string transaction_hash = 7;
 }
 
