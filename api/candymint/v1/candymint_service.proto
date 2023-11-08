@@ -21,16 +21,10 @@ service CandyMintService {
 }
 
 message LoginWithWalletRequest {
-  string polygon_address = 100;
+  string address = 1;
   string signature = 2;
   string message = 3;
   google.protobuf.Timestamp timestamp = 4;
-
-  reserved 1;
-  // The address field should be structured as a message that contains essential
-  // details such as the network, chain id and signature algorithm and other
-  // relevant information.
-  reserved "address";
 }
 
 message LoginWithWalletResponse {
@@ -49,18 +43,17 @@ message Collection {
   string cover_uri = 5;
   string author = 6;
   string github_repo_uri = 7;
-  string github_access_token = 8;
   // readonly
-  io.candysea.common.types.Chain chain = 9;
+  io.candysea.common.types.Chain chain = 8;
   // readonly
-  string contract_address = 10;
+  string contract_address = 9;
   // readonly
-  float price = 11;
+  float price = 10;
   // readonly
-  int32 supply_count = 12;
-  Release lastest_release = 13;
-  google.protobuf.Timestamp create_time = 14;
-  google.protobuf.Timestamp update_time = 15;
+  int32 supply_count = 11;
+  Release latest_release = 12;
+  google.protobuf.Timestamp create_time = 13;
+  google.protobuf.Timestamp update_time = 14;
 }
 
 message Release {
@@ -124,12 +117,13 @@ message UpdateCollectionRequest {
 }
 
 message SyncCollectionOnChainDataRequest {
-  string name = 1;
-  io.candysea.common.types.Chain chain = 2;
-  string contract_address = 3;
-  float price = 4;
-  int32 supply_count = 5;
-  string transaction_hash = 6;
+  string collection_id = 1;
+  string collection_name = 2;
+  io.candysea.common.types.Chain chain = 3;
+  string contract_address = 4;
+  float price = 5;
+  int32 supply_count = 6;
+  string transaction_hash = 7;
 }
 
 message ListReleasesRequest {
