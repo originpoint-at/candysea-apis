@@ -75,7 +75,7 @@ message NFT {
   string id = 1;
   string token_id = 2;
   Collection collection = 3;
-  float min_price = 4;
+  float mint_price = 4;
   google.protobuf.Timestamp mint_time = 5;
 }
 
