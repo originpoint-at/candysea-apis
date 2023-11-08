@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package io.candysea.candymint.v1;
 
-import "api/common/types/chain.proto";
+import "common/types/chain.proto";
 import "google/protobuf/timestamp.proto";
 
 option java_multiple_files = true;
