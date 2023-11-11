@@ -98,15 +98,15 @@ message GetCollectionRequest {
 message RepoTag {
   string tag = 1;
   string commit_hash = 2;
-  google.timestamp.Timestamp create_time = 3;
+  google.protobuf.Timestamp create_time = 3;
 }
 
-message ListRepoTags {
+message ListRepoTagsRequest {
   string collection_id = 1;
   string collection_name = 2;
 }
 
-message ListRepoTagsRequest {
+message ListRepoTagsResponse {
   repeated string tags = 1;
 }
 
