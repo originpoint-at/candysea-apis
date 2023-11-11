@@ -4,22 +4,26 @@ package io.candysea.candymint.v1;
 
 import "common/types/chain.proto";
 import "google/protobuf/timestamp.proto";
+import "candymint/v1/collection.proto";
+import "candymint/v1/nft.proto";
+import "candymint/v1/release.proto";
+import "candymint/v1/repo_tag.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
 service CandyMintService {
-  rpc LoginWithWallet (LoginWithWalletRequest) returns (LoginWithWalletResponse) {};
-  rpc CreateCollection (CreateCollectionRequest) returns (Collection) {};
-  rpc GetCollection (GetCollectionRequest) returns (Collection) {};
-  rpc ListRepoTags (ListRepoTagsRequest) returns (ListRepoTagsResponse) {};
-  rpc ListCollections (ListCollectionsRequest) returns (ListCollectionsResponse) {};
-  rpc UpdateCollection (UpdateCollectionRequest) returns (Collection) {};
-  rpc SyncCollectionOnChainData (SyncCollectionOnChainDataRequest) returns (Collection) {};
-  rpc ListReleases (ListReleasesRequest) returns (ListReleasesResponse) {};
-  rpc ListNFTs (ListNFTsRequest) returns (ListNFTsResponse) {};
-  rpc GetNFT (GetNFTRequest) returns (NFT) {};
+  rpc LoginWithWallet(LoginWithWalletRequest) returns (LoginWithWalletResponse) {}
+  rpc CreateCollection(CreateCollectionRequest) returns (Collection) {}
+  rpc GetCollection(GetCollectionRequest) returns (Collection) {}
+  rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
+  rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
+  rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
+  rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
+  rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
+  rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
+  rpc GetNFT(GetNFTRequest) returns (NFT) {}
 }
 
 message LoginWithWalletRequest {
@@ -31,54 +35,9 @@ message LoginWithWalletRequest {
 
 message LoginWithWalletResponse {
   string access_token = 1;
-  
+
   reserved 2;
   reserved "refresh_token";
-}
-
-message Collection {
-  string id = 1;
-  // readonly, generated from display_name
-  string name = 2;
-  string display_name = 3;
-  string description = 4;
-  string cover_uri = 5;
-  string author = 6;
-  string github_repo_uri = 7;
-  // readonly
-  io.candysea.common.types.Chain chain = 8;
-  // readonly
-  string contract_address = 9;
-  // readonly
-  float price = 10;
-  // readonly
-  int32 max_supply_count = 11;
-  Release latest_release = 12;
-  google.protobuf.Timestamp create_time = 13;
-  google.protobuf.Timestamp update_time = 14;
-}
-
-message Release {
-  enum Status {
-    STATUS_UNSPECIFIED = 0;
-    PROCESSING = 1;
-    PROCESS_SUCCEEDED = 2;
-    PROCESS_FAILED = 3;
-    PUBLISHED = 4;
-  }
-  string version = 1;
-  Status status = 2;
-  string wasm_uri = 3;
-  string commit_hash = 4;
-  google.protobuf.Timestamp create_time = 5;
-}
-
-message NFT {
-  string id = 1;
-  string token_id = 2;
-  Collection collection = 3;
-  float mint_price = 4;
-  google.protobuf.Timestamp mint_time = 5;
 }
 
 message CreateCollectionRequest {
@@ -95,12 +54,6 @@ message GetCollectionRequest {
   string collection_name = 1;
 }
 
-message RepoTag {
-  string tag = 1;
-  string commit_hash = 2;
-  google.protobuf.Timestamp create_time = 3;
-}
-
 message ListRepoTagsRequest {
   string collection_id = 1;
   string collection_name = 2;
@@ -114,6 +67,8 @@ message ListCollectionsRequest {
   enum Channel {
     CHANNEL_UNSPECIFIED = 0;
     TOP_MINTED = 1;
+    // list collections owned by the user
+    OWNED = 2;
   }
   Channel channel = 1;
   int32 limit = 2;

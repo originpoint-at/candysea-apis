@@ -1,0 +1,17 @@
+{
+	"name": "@candysea/apis",
+	"version": "0.0.0+HEAD",
+	"private": true,
+	"scripts": {
+		"gen": "buf generate ."
+	},
+	"dependencies": {
+		"@bufbuild/protobuf": "^1.4.2",
+		"@connectrpc/connect-query": "^0.6.0"
+	},
+	"devDependencies": {
+		"@bufbuild/buf": "^1.28.0",
+		"@bufbuild/protoc-gen-es": "^1.4.2",
+		"@connectrpc/protoc-gen-connect-es": "^1.1.3"
+	}
+}

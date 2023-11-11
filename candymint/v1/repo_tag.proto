@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1;
+
+import "common/types/chain.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1";
+
+message RepoTag {
+  string tag = 1;
+  string commit_hash = 2;
+  google.protobuf.Timestamp create_time = 3;
+}
