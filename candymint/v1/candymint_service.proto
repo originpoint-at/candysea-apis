@@ -152,5 +152,7 @@ message ListNFTsResponse {
 }
 
 message GetNFTRequest {
-  string token_id = 2;
+  string collection_id = 1;
+  string collection_name = 2;
+  string token_id = 3;
 }
