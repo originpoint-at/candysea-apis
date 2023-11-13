@@ -81,21 +81,19 @@ message ListCollectionsResponse {
 
 message UpdateCollectionRequest {
   string collection_id = 1;
-  string collection_name = 2;
-  string display_name = 3;
-  string description = 4;
-  string cover_file_id = 5;
+  string display_name = 2;
+  string description = 3;
+  string cover_file_id = 4;
 }
 
 message SyncCollectionOnChainDataRequest {
   string collection_id = 1;
-  string collection_name = 2;
-  io.candysea.common.types.Chain chain = 3;
-  string contract_name = 4;
-  string contract_address = 5;
-  float price = 6;
-  int32 max_supply_count = 7;
-  string transaction_hash = 8;
+  io.candysea.common.types.Chain chain = 2;
+  string contract_name = 3;
+  string contract_address = 4;
+  float price = 5;
+  int32 max_supply_count = 6;
+  string transaction_hash = 7;
 }
 
 message ListReleasesRequest {
