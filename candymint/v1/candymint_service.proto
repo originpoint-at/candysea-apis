@@ -7,7 +7,6 @@ import "google/protobuf/timestamp.proto";
 import "candymint/v1/collection.proto";
 import "candymint/v1/nft.proto";
 import "candymint/v1/release.proto";
-import "candymint/v1/repo_tag.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
@@ -23,7 +22,7 @@ service CandyMintService {
   rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
-  rpc GetNFT(GetNFTRequest) returns (NFT) {}
+  rpc GetNFT(GetNFTRequest) returns (Nft) {}
 }
 
 message LoginWithWalletRequest {
@@ -118,7 +117,7 @@ message ListNFTsRequest {
 }
 
 message ListNFTsResponse {
-  repeated NFT nfts = 1;
+  repeated Nft nfts = 1;
   int32 total = 2;
 }
 

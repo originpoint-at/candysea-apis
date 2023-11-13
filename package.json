@@ -3,11 +3,8 @@
 	"version": "0.0.0+HEAD",
 	"private": true,
 	"scripts": {
-		"gen": "buf generate ."
-	},
-	"dependencies": {
-		"@bufbuild/protobuf": "^1.4.2",
-		"@connectrpc/connect-query": "^0.6.0"
+		"gen:es": "buf generate . --template buf.gen.es.yaml",
+		"gen:backend": "buf generate . --template buf.gen.backend.yaml"
 	},
 	"devDependencies": {
 		"@bufbuild/buf": "^1.28.0",
