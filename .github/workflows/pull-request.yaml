@@ -6,8 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: bufbuild/buf-setup-action@v1
+      # - run: "echo ${{ secrets.BUF_TOKEN }}"
       - uses: bufbuild/buf-push-action@v1
         with:
           buf_token: ${{ secrets.BUF_TOKEN }}
-          create_visibility: private
-          draft: ${{ github.ref_name != 'main'}}
+        #   create_visibility: private
+        #   draft: ${{ github.ref_name != 'main'}}
