@@ -4,6 +4,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
       - uses: actions/checkout@v2
+        name: Checkout
       - uses: bufbuild/buf-setup-action@v1
-
+        name: Setup buf
+      - run: pnpm install
+      - run: pnpm run gen:es
+        name: Generate es
+      - run: tree ./generated/es
