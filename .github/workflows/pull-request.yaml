@@ -1,24 +1,13 @@
-name: buf-pull-request
+name: buf-push
 on: pull_request
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NPM_CONFIG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        with:
-          version: 8
-          run_install: false
       - uses: actions/checkout@v2
-        name: Checkout
       - uses: bufbuild/buf-setup-action@v1
-        name: Setup buf
-      - run: pnpm install
-      - run: pnpm run gen:es
-        name: Generate es
-      - run: tree ./generated/es
-        name: Show generated files
-      - name: Publish to GitHub npm registry
-        run: npm publish
+      - uses: bufbuild/buf-push-action@v1
+        with:
+          buf_token: ${{ secrets.BUF_TOKEN }}
+          create_visibility: private
+          draft: ${{ github.ref_name != 'main'}}
