@@ -1,5 +1,5 @@
 name: release
-on: 
+on:
   push:
     branches:
       - main
@@ -31,7 +31,7 @@ jobs:
                 "@bufbuild/protobuf": "^1.4.2"
               }
             }
-          dir: 'generated/es'
+          dir: "generated/es"
       - run: tree generated
       - name: Set publishing config
         run: |-
@@ -43,7 +43,7 @@ jobs:
       - name: Checkout @originpoint-at/candysea-apis repository
         uses: actions/checkout@v2
         with:
-          repository: '@originpoint-at/candysea-apis'
+          repository: "@originpoint-at/candysea-apis"
           token: ${{ secrets.GH_TOKEN }}
       - name: Upload generated/es directory
         uses: actions/upload-artifact@v2
