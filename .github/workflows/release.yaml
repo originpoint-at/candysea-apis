@@ -32,4 +32,5 @@ jobs:
               }
             }
           dir: 'generated/es'
+      - run: cat generated/es/package.json
       - run: tree generated
