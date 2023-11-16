@@ -19,6 +19,7 @@ message Release {
   string version = 1;
   Status status = 2;
   string wasm_uri = 3;
-  string commit_hash = 4;
-  google.protobuf.Timestamp create_time = 5;
+  string wasm_es_wrapper_uri = 4;
+  string commit_hash = 5;
+  google.protobuf.Timestamp create_time = 6;
 }
