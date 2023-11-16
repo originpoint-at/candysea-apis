@@ -35,5 +35,8 @@ jobs:
               }
             }
           dir: 'generated/es'
-      - run: cat generated/es/package.json
       - run: tree generated
+      - run: pnpm publish
+        working-directory: generated/es
+        env:
+          NPM_CONFIG_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
