@@ -17,6 +17,9 @@ jobs:
       - uses: bufbuild/buf-setup-action@v1
       - run: pnpm install
       - run: pnpm run gen:es
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
       - name: create-json
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
@@ -24,9 +27,9 @@ jobs:
           name: "package.json"
           json: >
             {
-              "name": "@buf/originpoint_candysea-apis.bufbuild_es",
+              "name": "@originpoint-at/candysea-apis",
               "type": "module",
-              "version": "${{ github.sha }}",
+              "version": "${{ steps.package-version.outputs.current-version}}-${{ github.sha }}",
               "peerDependencies": {
                 "@bufbuild/protobuf": "^1.4.2"
               }
