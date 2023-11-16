@@ -24,7 +24,7 @@ message Collection {
   // readonly
   string contract_address = 9;
   // readonly
-  float price = 10;
+  int64 price = 10;
   // readonly
   int32 max_supply_count = 11;
   Release latest_release = 12;

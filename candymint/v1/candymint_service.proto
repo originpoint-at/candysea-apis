@@ -92,7 +92,7 @@ message SyncCollectionOnChainDataRequest {
   io.candysea.common.types.Chain chain = 2;
   string contract_name = 3;
   string contract_address = 4;
-  float price = 5;
+  int64 price = 5;
   int32 max_supply_count = 6;
   string transaction_hash = 7;
 }

@@ -13,6 +13,6 @@ message Nft {
   string id = 1;
   string token_id = 2;
   Collection collection = 3;
-  float mint_price = 4;
+  int64 mint_price = 4;
   google.protobuf.Timestamp mint_time = 5;
 }
