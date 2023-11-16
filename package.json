@@ -1,0 +1,13 @@
+{
+  "name": "@candysea/apis",
+  "version": "0.0.1",
+  "scripts": {
+    "gen:es": "buf generate . --template buf.gen.es.yaml",
+    "gen:backend": "buf generate . --template buf.gen.backend.yaml"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.28.0",
+    "@bufbuild/protoc-gen-es": "^1.4.2",
+    "@connectrpc/protoc-gen-connect-es": "^1.1.3"
+  }
+}

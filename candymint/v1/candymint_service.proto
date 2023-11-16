@@ -1,0 +1,133 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1;
+
+import "common/types/chain.proto";
+import "google/protobuf/timestamp.proto";
+import "candymint/v1/collection.proto";
+import "candymint/v1/nft.proto";
+import "candymint/v1/release.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1";
+
+service CandyMintService {
+  rpc LoginWithWallet(LoginWithWalletRequest) returns (LoginWithWalletResponse) {}
+  rpc CreateCollection(CreateCollectionRequest) returns (Collection) {}
+  rpc GetCollection(GetCollectionRequest) returns (Collection) {}
+  rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
+  rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
+  rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
+  rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
+  rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
+  rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
+  rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
+  rpc GetNFT(GetNFTRequest) returns (Nft) {}
+}
+
+message LoginWithWalletRequest {
+  string address = 1;
+  string signature = 2;
+  string message = 3;
+  google.protobuf.Timestamp timestamp = 4;
+}
+
+message LoginWithWalletResponse {
+  string access_token = 1;
+
+  reserved 2;
+  reserved "refresh_token";
+}
+
+message CreateCollectionRequest {
+  string display_name = 1;
+  string description = 2;
+  string cover_file_id = 3;
+  // the HTTPS URI of the GitHub repository
+  string github_repo_uri = 4;
+  // TOOD: consider using OAuth2 instead
+  string github_access_token = 5;
+}
+
+message GetCollectionRequest {
+  string collection_name = 1;
+}
+
+message ListRepoTagsRequest {
+  string collection_id = 1;
+  string collection_name = 2;
+}
+
+message ListRepoTagsResponse {
+  repeated string tags = 1;
+}
+
+message ListCollectionsRequest {
+  enum Channel {
+    CHANNEL_UNSPECIFIED = 0;
+    TOP_MINTED = 1;
+    // list collections owned by the user
+    OWNED = 2;
+  }
+  Channel channel = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+}
+
+message ListCollectionsResponse {
+  repeated Collection collections = 1;
+  int32 total = 2;
+}
+
+message UpdateCollectionRequest {
+  string collection_id = 1;
+  string display_name = 2;
+  string description = 3;
+  string cover_file_id = 4;
+}
+
+message SyncCollectionOnChainDataRequest {
+  string collection_id = 1;
+  io.candysea.common.types.Chain chain = 2;
+  string contract_name = 3;
+  string contract_address = 4;
+  int64 price = 5;
+  int32 max_supply_count = 6;
+  string transaction_hash = 7;
+}
+
+message CreateReleaseRequest {
+  string collection_id = 1;
+  string tag = 2;
+  string description = 3;
+}
+
+message ListReleasesRequest {
+  string collection_id = 1;
+  string collection_name = 2;
+  int32 limit = 3;
+  int32 offset = 4;
+}
+
+message ListReleasesResponse {
+  repeated Release releases = 1;
+  int32 total = 2;
+}
+
+message ListNFTsRequest {
+  string collection_name = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+}
+
+message ListNFTsResponse {
+  repeated Nft nfts = 1;
+  int32 total = 2;
+}
+
+message GetNFTRequest {
+  string collection_id = 1;
+  string collection_name = 2;
+  string token_id = 3;
+}
