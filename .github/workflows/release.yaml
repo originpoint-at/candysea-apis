@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -43,5 +40,13 @@ jobs:
           pnpm config list
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}
-      - run: pnpm publish --no-git-checks
-        working-directory: generated/es
+      - name: Checkout @originpoint-at/candysea-apis repository
+        uses: actions/checkout@v2
+        with:
+          repository: '@originpoint-at/candysea-apis'
+          token: ${{ secrets.GH_TOKEN }}
+      - name: Upload generated/es directory
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated-es
+          path: generated/es
