@@ -27,7 +27,7 @@ jobs:
           name: "package.json"
           json: >
             {
-              "name": "@JuoCode/candysea-apis",
+              "name": "@originpoint-at/candysea-apis",
               "type": "module",
               "version": "${{ steps.package-version.outputs.current-version}}-${{ github.sha }}",
               "peerDependencies": {
@@ -39,7 +39,7 @@ jobs:
       - name: Set publishing config
         run: |-
           pnpm config set '//npm.pkg.github.com/:_authToken' "${NODE_AUTH_TOKEN}"
-          pnpm config set '@JuoCode:registry' 'https://npm.pkg.github.com'
+          pnpm config set '@originpoint-at:registry' 'https://npm.pkg.github.com'
           pnpm config list
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}
