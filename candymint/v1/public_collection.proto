@@ -10,7 +10,7 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
-message Collection {
+message PublicCollection {
   string id = 1;
   // readonly, generated from display_name
   string name = 2;
@@ -18,18 +18,13 @@ message Collection {
   string description = 4;
   string cover_uri = 5;
   string author = 6;
-  string github_repo_uri = 7;
   // readonly
   io.candysea.common.types.Chain chain = 8;
-  // readonly
-  string contract_address = 9;
   // readonly
   int64 price = 10;
   // readonly
   int32 max_supply_count = 11;
   Release latest_release = 12;
-  // the number of minted NFTs.
-  int32 mint_count = 13;
   google.protobuf.Timestamp create_time = 14;
 
   reserved 15;
