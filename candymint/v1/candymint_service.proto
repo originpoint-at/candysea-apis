@@ -2,17 +2,19 @@ syntax = "proto3";
 
 package io.candysea.candymint.v1;
 
-import "common/types/chain.proto";
-import "google/protobuf/timestamp.proto";
 import "candymint/v1/collection.proto";
 import "candymint/v1/nft.proto";
+import "candymint/v1/public_collection.proto";
 import "candymint/v1/release.proto";
+import "common/types/chain.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
 service CandyMintService {
+  rpc ListPublicCollections(ListPublicCollectionsRequset) returns (ListPublicCollectionsResponse) {}
   rpc LoginWithWallet(LoginWithWalletRequest) returns (LoginWithWalletResponse) {}
   rpc CreateCollection(CreateCollectionRequest) returns (Collection) {}
   rpc GetCollection(GetCollectionRequest) returns (Collection) {}
@@ -24,6 +26,21 @@ service CandyMintService {
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (Nft) {}
+}
+
+message ListPublicCollectionsRequset {
+  enum Channel {
+    CHANNEL_UNSPECIFIED = 0;
+    TOP_MINTED = 1;
+  }
+  Channel channel = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+}
+
+message ListPublicCollectionsResponse {
+  repeated PublicCollection public_collections = 1;
+  int32 total = 2;
 }
 
 message LoginWithWalletRequest {
@@ -64,15 +81,8 @@ message ListRepoTagsResponse {
 }
 
 message ListCollectionsRequest {
-  enum Channel {
-    CHANNEL_UNSPECIFIED = 0;
-    TOP_MINTED = 1;
-    // list collections owned by the user
-    OWNED = 2;
-  }
-  Channel channel = 1;
-  int32 limit = 2;
-  int32 offset = 3;
+  int32 limit = 1;
+  int32 offset = 2;
 }
 
 message ListCollectionsResponse {
