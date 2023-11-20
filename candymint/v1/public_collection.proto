@@ -19,13 +19,13 @@ message PublicCollection {
   string cover_uri = 5;
   string author = 6;
   // readonly
-  io.candysea.common.types.Chain chain = 8;
+  io.candysea.common.types.Chain chain = 7;
   // readonly
-  int64 price = 10;
+  int64 price = 8;
   // readonly
-  int32 max_supply_count = 11;
-  Release latest_release = 12;
-  google.protobuf.Timestamp create_time = 14;
+  int32 max_supply_count = 9;
+  Release latest_release = 10;
+  google.protobuf.Timestamp create_time = 11;
 
   reserved 15;
   reserved "update_time";
