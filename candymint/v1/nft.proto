@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package io.candysea.candymint.v1;
 
-import "common/types/chain.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
@@ -12,7 +11,7 @@ option java_package = "io.candysea.candymint.v1";
 message Nft {
   string id = 1;
   string token_id = 2;
-  io.candysea.common.types.Chain chain = 3;
+  string chain = 3;
   string collection_id = 4;
   string collection_name = 5;
   string collection_display_name = 6;
