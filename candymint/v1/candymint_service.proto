@@ -6,7 +6,6 @@ import "candymint/v1/collection.proto";
 import "candymint/v1/nft.proto";
 import "candymint/v1/public_collection.proto";
 import "candymint/v1/release.proto";
-import "common/types/chain.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
@@ -99,7 +98,7 @@ message UpdateCollectionRequest {
 
 message SyncCollectionOnChainDataRequest {
   string collection_id = 1;
-  io.candysea.common.types.Chain chain = 2;
+  string chain = 2;
   string contract_name = 3;
   string contract_address = 4;
   int64 price = 5;
