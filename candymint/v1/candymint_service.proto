@@ -49,6 +49,7 @@ message LoginWithWalletRequest {
   string message = 3;
   google.protobuf.Timestamp timestamp = 4;
 }
+  rpc PublishRelease(PublishReleaseRequest) returns (Release) {}
 
 message LoginWithWalletResponse {
   string access_token = 1;
@@ -140,4 +141,8 @@ message GetNFTRequest {
   string collection_id = 1;
   string collection_name = 2;
   string token_id = 3;
+}
+message PublishReleaseRequest {
+  string collection_id = 1;
+  string version = 2;
 }
