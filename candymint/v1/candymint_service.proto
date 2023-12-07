@@ -23,6 +23,7 @@ service CandyMintService {
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
   rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
   rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
+  rpc PublishRelease(PublishReleaseRequest) returns (Release) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (Nft) {}
@@ -111,6 +112,11 @@ message CreateReleaseRequest {
   string collection_id = 1;
   string tag = 2;
   string description = 3;
+}
+
+message PublishReleaseRequest {
+  string collection_id = 1;
+  string version = 2;
 }
 
 message ListReleasesRequest {
