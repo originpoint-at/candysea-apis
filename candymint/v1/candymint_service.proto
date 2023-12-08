@@ -116,7 +116,7 @@ message CreateReleaseRequest {
 
 message PublishReleaseRequest {
   string collection_id = 1;
-  string version = 2;
+  string release_id = 2;
 }
 
 message ListReleasesRequest {
