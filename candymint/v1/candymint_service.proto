@@ -100,11 +100,12 @@ message UpdateCollectionRequest {
 message SyncCollectionOnChainDataRequest {
   string collection_id = 1;
   string chain = 2;
-  string contract_name = 3;
-  string contract_address = 4;
-  int64 price = 5;
-  int32 max_supply_count = 6;
-  string transaction_hash = 7;
+  string nft_name = 3;
+  string nft_symbol = 4;
+  string contract_address = 5;
+  int64 single_price = 6;
+  int32 max_supply = 7;
+  string transaction_hash = 8;
 }
 
 message CreateReleaseRequest {
