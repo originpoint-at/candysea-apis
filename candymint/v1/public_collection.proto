@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1;
+
+import "candymint/v1/release.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1";
+
+message PublicCollection {
+  string id = 1;
+  // readonly, generated from display_name
+  string name = 2;
+  string display_name = 3;
+  string description = 4;
+  string cover_uri = 5;
+  string author = 6;
+  // readonly
+  string chain = 7;
+  // readonly
+  int64 price = 8;
+  // readonly
+  int32 max_supply_count = 9;
+  Release latest_release = 10;
+  google.protobuf.Timestamp create_time = 11;
+
+  reserved 15;
+  reserved "update_time";
+}
