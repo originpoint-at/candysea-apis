@@ -102,8 +102,8 @@ message SyncCollectionOnChainDataRequest {
   string chain = 2;
   string contract_name = 3;
   string contract_address = 4;
-  int64 price = 5;
-  int32 max_supply_count = 6;
+  int64 single_price = 5;
+  int32 max_supply = 6;
   string transaction_hash = 7;
 }
 
