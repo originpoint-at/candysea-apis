@@ -4,5 +4,5 @@ plugins:
     out: generated/es
   - plugin: connect-es
     out: generated/es
-  - plugin: buf.build/connectrpc/query-es
+  - plugin: connect-query
     out: generated/es
