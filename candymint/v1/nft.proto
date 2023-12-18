@@ -11,7 +11,7 @@ option java_package = "io.candysea.candymint.v1";
 message Nft {
   string id = 1;
   string token_id = 2;
-  string chain = 3;
+  string chain_id = 3;
   string collection_id = 4;
   string collection_name = 5;
   string collection_display_name = 6;

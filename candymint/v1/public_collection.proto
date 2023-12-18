@@ -18,7 +18,7 @@ message PublicCollection {
   string cover_uri = 5;
   string author = 6;
   // readonly
-  string chain = 7;
+  string chain_id = 7;
   // readonly
   int64 price = 8;
   // readonly

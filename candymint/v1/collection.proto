@@ -19,7 +19,7 @@ message Collection {
   string author = 6;
   string github_repo_uri = 7;
   // readonly
-  string chain = 8;
+  string chain_id = 8;
   // readonly
   string contract_address = 9;
   // readonly
