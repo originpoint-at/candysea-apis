@@ -10,6 +10,11 @@ option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
 message Collection {
+  enum Type {
+    TYPE_UNSPECIFIED = 0;
+    CUSTOM = 1;
+    SYNTHETIC = 2;
+  }
   string id = 1;
   // readonly, generated from display_name
   string name = 2;
@@ -17,6 +22,7 @@ message Collection {
   string description = 4;
   string cover_uri = 5;
   string author = 6;
+  Type type = 16;
   string github_repo_uri = 7;
   // readonly
   string chain_id = 8;

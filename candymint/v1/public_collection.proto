@@ -3,6 +3,7 @@ syntax = "proto3";
 package io.candysea.candymint.v1;
 
 import "candymint/v1/release.proto";
+import "candymint/v1/collection.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
@@ -17,6 +18,7 @@ message PublicCollection {
   string description = 4;
   string cover_uri = 5;
   string author = 6;
+  Collection.Type type = 16;
   // readonly
   string chain_id = 7;
   // readonly

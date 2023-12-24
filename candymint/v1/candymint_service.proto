@@ -66,6 +66,7 @@ message CreateCollectionRequest {
   string github_repo_uri = 5;
   // TOOD: consider using OAuth2 instead
   string github_access_token = 6;
+  Collection.Type type = 7;
 }
 
 message GetCollectionRequest {
