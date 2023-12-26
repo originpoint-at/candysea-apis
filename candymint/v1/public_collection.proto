@@ -18,16 +18,16 @@ message PublicCollection {
   string description = 4;
   string cover_uri = 5;
   string author = 6;
-  Collection.Type type = 16;
+  Collection.Type type = 7;
   // readonly
-  string chain_id = 7;
+  string chain_id = 8;
   // readonly
-  int64 price = 8;
+  int64 price = 9;
   // readonly
-  int32 max_supply_count = 9;
-  Release latest_release = 10;
-  google.protobuf.Timestamp create_time = 11;
+  int32 max_supply_count = 10;
+  Release latest_release = 11;
+  google.protobuf.Timestamp create_time = 12;
 
-  reserved 15;
+  reserved 13;
   reserved "update_time";
 }
