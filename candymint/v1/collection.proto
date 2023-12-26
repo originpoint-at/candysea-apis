@@ -10,6 +10,11 @@ option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
 message Collection {
+  enum Type {
+    TYPE_UNSPECIFIED = 0;
+    CUSTOM = 1;
+    SYNTHETIC = 2;
+  }
   string id = 1;
   // readonly, generated from display_name
   string name = 2;
@@ -17,20 +22,21 @@ message Collection {
   string description = 4;
   string cover_uri = 5;
   string author = 6;
-  string github_repo_uri = 7;
+  Type type = 7;
+  string github_repo_uri = 8;
   // readonly
-  string chain_id = 8;
+  string chain_id = 9;
   // readonly
-  string contract_address = 9;
+  string contract_address = 10;
   // readonly
-  int64 price = 10;
+  int64 price = 11;
   // readonly
-  int32 max_supply_count = 11;
-  Release latest_release = 12;
+  int32 max_supply_count = 12;
+  Release latest_release = 13;
   // the number of minted NFTs.
-  int32 mint_count = 13;
-  google.protobuf.Timestamp create_time = 14;
+  int32 mint_count = 14;
+  google.protobuf.Timestamp create_time = 15;
 
-  reserved 15;
+  reserved 16;
   reserved "update_time";
 }
