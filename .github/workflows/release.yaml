@@ -1,5 +1,5 @@
 name: release
-on: 
+on:
   push:
     branches:
       - main
@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v2
       - uses: pnpm/action-setup@v2
@@ -25,7 +28,7 @@ jobs:
         uses: jsdaniell/create-json@v1.2.2
         with:
           name: "package.json"
-          json: >
+          json: |
             {
               "name": "@originpoint-at/candysea-apis",
               "type": "module",
@@ -35,13 +38,12 @@ jobs:
               }
             }
           dir: 'generated/es'
-      - run: tree generated
+      - run: ls -la generated/es
+      # TODO: using npmrc instead
       - name: Set publishing config
+        working-directory: generated/es
         run: |-
-          pnpm config set '//npm.pkg.github.com/:_authToken' "${NODE_AUTH_TOKEN}"
+          pnpm config set '//npm.pkg.github.com/:_authToken' "${{ secrets.GITHUB_TOKEN }}"
           pnpm config set '@originpoint-at:registry' 'https://npm.pkg.github.com'
-          pnpm config list
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}
       - run: pnpm publish --no-git-checks
         working-directory: generated/es
