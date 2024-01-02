@@ -62,13 +62,10 @@ message CreateCollectionRequest {
   string display_name = 2;
   string description = 3;
   // the HTTPS URI of the GitHub repository
-  string github_repo_uri = 5;
+  string github_repo_uri = 4;
   // TOOD: consider using OAuth2 instead
-  string github_access_token = 6;
-  Collection.Type type = 7;
-
-  reserved 4;
-  reserved "cover_file_id";
+  string github_access_token = 5;
+  Collection.Type type = 6;
 }
 
 message GetCollectionRequest {
