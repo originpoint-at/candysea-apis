@@ -3,6 +3,7 @@ syntax = "proto3";
 package io.candysea.candymint.v1;
 
 import "google/protobuf/timestamp.proto";
+import "candymint/v1/collection.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
@@ -15,9 +16,10 @@ message Nft {
   string collection_id = 4;
   string collection_name = 5;
   string collection_display_name = 6;
-  string collection_cover_uri = 7;
-  string collection_author = 8;
-  string collection_contract_address = 9;
-  int64 mint_price = 10;
-  google.protobuf.Timestamp mint_time = 11;
+  Collection.Type collection_type = 7;
+  string collection_cover_uri = 8;
+  string collection_author = 9;
+  string collection_contract_address = 10;
+  int64 mint_price = 11;
+  google.protobuf.Timestamp mint_time = 12;
 }
