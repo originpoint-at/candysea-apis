@@ -145,3 +145,24 @@ message GetNFTRequest {
   string collection_name = 2;
   string token_id = 3;
 }
+
+message CreateOrderRequest {
+  string receiver = 1;
+  int32 fee_rate = 2;
+  // data:// or  https
+  string file = 3;
+  string collection_id = 4;
+  repeated NftAttribute attributes = 5;
+}
+
+message CreateOrderResponse {
+  enum OrderState {
+    PENDING = 0;
+    INSCRIBING = 1;
+    MINTED = 2;
+    CLOSE = 3;
+  }
+  string order_id = 1;
+  string fee_recipient = 2;
+  OrderState order_state = 4;
+}
