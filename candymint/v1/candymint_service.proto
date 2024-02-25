@@ -148,12 +148,17 @@ message GetNFTRequest {
 }
 
 message CreateOrderRequest {
+  enum FileScheme {
+    BASE64 = 0;
+    HTTP = 1;
+  }
   string receiver = 1;
   int32 fee_rate = 2;
   // data:// or  https
-  string file = 3;
-  string collection_id = 4;
-  repeated NftAttribute attributes = 5;
+  FileScheme file_scheme = 3;
+  string file_value = 4;
+  string collection_id = 5;
+  repeated NftAttribute attributes = 6;
 }
 
 message CreateOrderResponse {
@@ -163,7 +168,7 @@ message CreateOrderResponse {
     MINTED = 2;
     CLOSE = 3;
   }
-  string order_id = 1;
-  string fee_recipient = 2;
-  OrderState order_state = 4;
+  OrderState order_state = 1;
+  string order_id = 2;
+  string fee_recipient = 3;
 }
