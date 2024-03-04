@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1";
+
+message Inscription {
+  enum FileScheme {
+    BASE64 = 0;
+    HTTP = 1;
+  }
+  message Attribute {
+    string trait_type = 1;
+    string value = 2;
+  }
+  string id = 1;
+  string chain_id = 2;
+  string inscription_id = 3;
+  string owner = 4;
+  string genesis_transaction = 5;
+  string name = 6;
+  string order_id = 7;
+  string file_uri = 8;
+  string file_value = 9;
+  repeated Attribute attributes = 10;
+}
