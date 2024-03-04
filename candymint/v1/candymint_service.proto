@@ -3,6 +3,7 @@ syntax = "proto3";
 package io.candysea.candymint.v1;
 
 import "candymint/v1/collection.proto";
+import "candymint/v1/inscription_order.proto";
 import "candymint/v1/nft.proto";
 import "candymint/v1/public_collection.proto";
 import "candymint/v1/release.proto";
@@ -26,6 +27,8 @@ service CandyMintService {
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (Nft) {}
+  rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse) {}
+  rpc ListOrder(ListOrderRequest) returns (ListOrderResponse) {}
 }
 
 message ListPublicCollectionsRequset {
@@ -162,13 +165,17 @@ message CreateOrderRequest {
 }
 
 message CreateOrderResponse {
-  enum OrderState {
-    PENDING = 0;
-    INSCRIBING = 1;
-    MINTED = 2;
-    CLOSE = 3;
-  }
-  OrderState order_state = 1;
+  InscriptionOrder.OrderState order_state = 1;
   string order_id = 2;
-  string fee_recipient = 3;
+}
+
+message ListOrderRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+  string address = 3;
+}
+
+message ListOrderResponse {
+  repeated InscriptionOrder orders = 1;
+  int32 total = 2;
 }
