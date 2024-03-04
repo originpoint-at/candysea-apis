@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package io.candysea.candymint.v1;
 
-import "candymint/v1/release.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
@@ -33,7 +32,7 @@ message InscriptionOrder {
   OrderType order_type = 3;
   OrderState order_state = 4;
   InscriptionState inscription_state = 5;
-  string paymentTransaction = 6;
-  string commitTransaction = 7;
-  string revealTransaction = 8;
+  string payment_transaction = 6;
+  string commit_transaction = 7;
+  string reveal_transaction = 8;
 }
