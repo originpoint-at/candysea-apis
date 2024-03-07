@@ -3,9 +3,11 @@ on:
   push:
     branches:
       - main
+      - develop
   pull_request:
     branches:
       - main
+      - develop
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,7 +39,7 @@ jobs:
                 "@bufbuild/protobuf": "^1.4.2"
               }
             }
-          dir: 'generated/es'
+          dir: "generated/es"
       - run: tree generated
       - name: Set publishing config
         run: |-
