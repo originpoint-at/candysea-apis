@@ -30,7 +30,7 @@ service CandyMintService {
   rpc GetNFT(GetNFTRequest) returns (Nft) {}
   rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse) {}
   rpc ListOrder(ListOrderRequest) returns (ListOrderResponse) {}
-  rpc ListInscription(ListInscriptionRequest) returns (ListInscriptionResponse) {}
+  rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
 }
 
 message ListPublicCollectionsRequset {
