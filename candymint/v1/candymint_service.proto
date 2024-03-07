@@ -152,7 +152,7 @@ message GetNFTRequest {
   string token_id = 3;
 }
 
-message CreateOrderRequest {
+message CreateInscriptionOrderRequest {
   string receiver = 1;
   int32 fee_rate = 2;
   // data:// or  https
@@ -162,29 +162,29 @@ message CreateOrderRequest {
   repeated NftAttribute attributes = 6;
 }
 
-message CreateOrderResponse {
+message CreateInscriptionOrderResponse {
   InscriptionOrder.OrderState order_state = 1;
   string order_id = 2;
 }
 
-message ListOrderRequest {
+message ListInscriptionOrdersRequest {
   int32 limit = 1;
   int32 offset = 2;
   string address = 3;
 }
 
-message ListOrderResponse {
+message ListInscriptionOrdersResponse {
   repeated InscriptionOrder orders = 1;
   int32 total = 2;
 }
 
-message ListInscriptionRequest {
+message ListInscriptionsRequest {
   int32 limit = 1;
   int32 offset = 2;
   string address = 3;
 }
 
-message ListInscriptionResponse {
+message ListInscriptionsResponse {
   repeated Inscription inscriptions = 1;
   int32 total = 2;
 }
