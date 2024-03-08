@@ -23,3 +23,8 @@ message Nft {
   int64 mint_price = 11;
   google.protobuf.Timestamp mint_time = 12;
 }
+
+message NftAttribute {
+  string trait_type = 1;
+  string value = 2;
+}

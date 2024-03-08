@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1";
+
+message InscriptionOrder {
+  enum OrderState {
+    PENDING = 0;
+    INSCRIBING = 1;
+    MINTED = 2;
+    CLOSE = 3;
+  }
+
+  enum InscriptionState {
+    PEND = 0;
+    UNCONFIRMED = 1;
+    CONFIRMED = 2;
+  }
+
+  enum OrderType {
+    COLLECTION = 0;
+    ITEM = 1;
+  }
+
+  string id = 1;
+  string chain_id = 2;
+  OrderType order_type = 3;
+  OrderState order_state = 4;
+  InscriptionState inscription_state = 5;
+  string payment_transaction = 6;
+  string commit_transaction = 7;
+  string reveal_transaction = 8;
+}
