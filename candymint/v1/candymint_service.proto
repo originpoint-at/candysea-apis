@@ -104,6 +104,7 @@ message UpdateCollectionRequest {
   string cover_file_id = 4;
   string github_repo_uri = 5;
   string github_access_token = 6;
+  Collection.Type type = 7;
 }
 
 message SyncCollectionOnChainDataRequest {
