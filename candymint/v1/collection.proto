@@ -15,17 +15,6 @@ message Collection {
     CUSTOM = 1;
     SYNTHETIC = 2;
   }
-  message Btc {
-    string network = 1;
-  }
-  message Polygon {
-    string chain_id = 1;
-    string contract_name = 2;
-    string contract_symbol = 3;
-    string contract_address = 4;
-    string transaction_hash = 5;
-    int32 max_supply = 6;
-  }
   string id = 1;
   // readonly, generated from display_name
   string name = 2;
@@ -35,15 +24,19 @@ message Collection {
   string author = 6;
   Type type = 7;
   string github_repo_uri = 8;
-  Release latest_release = 9;
-  int64 single_price = 10;
-  int32 mint_count = 11;
-  google.protobuf.Timestamp create_time = 12;
+  // readonly
+  string chain_id = 9;
+  // readonly
+  string contract_address = 10;
+  // readonly
+  int64 price = 11;
+  // readonly
+  int32 max_supply_count = 12;
+  Release latest_release = 13;
+  // the number of minted NFTs.
+  int32 mint_count = 14;
+  google.protobuf.Timestamp create_time = 15;
 
-  oneof chain {
-    Btc btc = 101;
-    Polygon polygon = 102;
-  }
-  reserved 103;
-  reserved "solana";
+  reserved 16;
+  reserved "update_time";
 }
