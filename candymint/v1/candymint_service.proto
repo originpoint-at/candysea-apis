@@ -105,6 +105,7 @@ message UpdateCollectionRequest {
   string github_repo_uri = 5;
   string github_access_token = 6;
   Collection.Type type = 7;
+  string contract_tx_hash = 8;
 }
 
 message SyncCollectionOnChainDataRequest {
