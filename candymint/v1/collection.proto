@@ -36,7 +36,7 @@ message Collection {
   // the number of minted NFTs.
   int32 mint_count = 14;
   google.protobuf.Timestamp create_time = 15;
-
+  string contract_tx_hash = 16;
   reserved 16;
   reserved "update_time";
 }
