@@ -35,6 +35,6 @@ message Collection {
   // the number of minted NFTs.
   int32 mint_count = 17;
   google.protobuf.Timestamp create_time = 18;
-  reserved 19;
+  reserved 16;
   reserved "update_time";
 }
