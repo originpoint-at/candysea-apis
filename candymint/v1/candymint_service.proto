@@ -23,6 +23,8 @@ service CandyMintService {
   rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
+  // deprecated
+  rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
   rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
@@ -106,6 +108,18 @@ message UpdateCollectionRequest {
   string contract_address = 12;
   int64 price = 13;
   int32 max_supply_count = 14;
+}
+
+// deprecated
+message SyncCollectionOnChainDataRequest {
+  string collection_id = 1;
+  string chain_id = 2;
+  string nft_name = 3;
+  string nft_symbol = 4;
+  string contract_address = 5;
+  int64 single_price = 6;
+  int32 max_supply = 7;
+  string transaction_hash = 8;
 }
 
 message CreateReleaseRequest {
