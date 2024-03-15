@@ -24,17 +24,19 @@ message Collection {
   string author = 6;
   Type type = 7;
   string github_repo_uri = 8;
+  // readonly
   string chain_id = 9;
+  // readonly
   string contract_address = 10;
-  string contract_name = 11;
-  string contract_symbol = 12;
-  string contract_transaction_hash = 13;
-  int64 price = 14;
-  int32 max_supply_count = 15;
-  Release latest_release = 16;
+  // readonly
+  int64 price = 11;
+  // readonly
+  int32 max_supply_count = 12;
+  Release latest_release = 13;
   // the number of minted NFTs.
-  int32 mint_count = 17;
-  google.protobuf.Timestamp create_time = 18;
-  reserved 16;
+  int32 mint_count = 14;
+  google.protobuf.Timestamp create_time = 15;
+  string contract_tx_hash = 16;
+  reserved 17;
   reserved "update_time";
 }

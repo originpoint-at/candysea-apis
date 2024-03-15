@@ -23,7 +23,6 @@ service CandyMintService {
   rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
-  // deprecated
   rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
   rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
@@ -106,16 +105,9 @@ message UpdateCollectionRequest {
   string github_repo_uri = 5;
   string github_access_token = 6;
   Collection.Type type = 7;
-  string chain_id = 8;
-  string contract_name = 9;
-  string contract_symbol = 10;
-  string contract_transaction_hash = 11;
-  string contract_address = 12;
-  int64 price = 13;
-  int32 max_supply_count = 14;
+  string contract_tx_hash = 8;
 }
 
-// deprecated
 message SyncCollectionOnChainDataRequest {
   string collection_id = 1;
   string chain_id = 2;
