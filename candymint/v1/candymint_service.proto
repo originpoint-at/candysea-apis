@@ -23,7 +23,6 @@ service CandyMintService {
   rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
-  rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
   rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
@@ -67,11 +66,6 @@ message CreateCollectionRequest {
   string chain_id = 1;
   string display_name = 2;
   string description = 3;
-  // the HTTPS URI of the GitHub repository
-  string github_repo_uri = 4;
-  // TOOD: consider using OAuth2 instead
-  string github_access_token = 5;
-  Collection.Type type = 6;
 }
 
 message GetCollectionRequest {
@@ -105,18 +99,13 @@ message UpdateCollectionRequest {
   string github_repo_uri = 5;
   string github_access_token = 6;
   Collection.Type type = 7;
-  string contract_tx_hash = 8;
-}
-
-message SyncCollectionOnChainDataRequest {
-  string collection_id = 1;
-  string chain_id = 2;
-  string nft_name = 3;
-  string nft_symbol = 4;
-  string contract_address = 5;
-  int64 single_price = 6;
-  int32 max_supply = 7;
-  string transaction_hash = 8;
+  string chain_id = 8;
+  string contract_name = 9;
+  string contract_symbol = 10;
+  string contract_transaction_hash = 11;
+  string contract_address = 12;
+  int64 price = 13;
+  int32 max_supply_count = 14;
 }
 
 message CreateReleaseRequest {
