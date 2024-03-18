@@ -39,4 +39,5 @@ message Collection {
   string contract_tx_hash = 16;
   reserved 17;
   reserved "update_time";
+  string inscription_order_id = 18;
 }
