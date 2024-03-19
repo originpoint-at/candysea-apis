@@ -156,9 +156,9 @@ message GetNFTRequest {
 
 message CreateInscriptionOrderRequest {
   string receiver = 1;
-  string base64_payload = 3;
-  string collection_id = 4;
-  repeated NftAttribute attributes = 5;
+  string base64_payload = 2;
+  string collection_id = 3;
+  repeated NftAttribute attributes = 4;
 }
 
 message CreateInscriptionOrderResponse {
