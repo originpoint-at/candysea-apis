@@ -156,9 +156,7 @@ message GetNFTRequest {
 
 message CreateInscriptionOrderRequest {
   string receiver = 1;
-  // data:// or  https
-  Inscription.FileScheme file_scheme = 2;
-  string file_value = 3;
+  string base64_payload = 3;
   string collection_id = 4;
   repeated NftAttribute attributes = 5;
 }
