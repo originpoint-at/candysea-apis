@@ -29,6 +29,7 @@ service CandyMintService {
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (Nft) {}
   rpc CreateInscriptionOrder(CreateInscriptionOrderRequest) returns (InscriptionOrder) {}
+  rpc GetInscriptionOrder(GetInscriptionOrderRequest) returns (InscriptionOrder) {}
   rpc ListInscriptionOrders(ListInscriptionOrdersRequest) returns (ListInscriptionOrdersResponse) {}
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
 }
@@ -164,6 +165,10 @@ message CreateInscriptionOrderRequest {
 message CreateInscriptionOrderResponse {
   InscriptionOrder.OrderState order_state = 1;
   string order_id = 2;
+}
+
+message GetInscriptionOrderRequest {
+  string order_id = 1;
 }
 
 message ListInscriptionOrdersRequest {
