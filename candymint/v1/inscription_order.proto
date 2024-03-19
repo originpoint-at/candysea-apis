@@ -35,4 +35,5 @@ message InscriptionOrder {
   string payment_transaction = 6;
   string commit_transaction = 7;
   string reveal_transaction = 8;
+  string platform_fee_recipient = 9;
 }
