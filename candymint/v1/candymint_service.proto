@@ -4,7 +4,6 @@ package io.candysea.candymint.v1;
 
 import "candymint/v1/collection.proto";
 import "candymint/v1/inscription.proto";
-import "candymint/v1/inscription_order.proto";
 import "candymint/v1/nft.proto";
 import "candymint/v1/public_collection.proto";
 import "candymint/v1/release.proto";
@@ -160,6 +159,7 @@ message CreateInscriptionOrderRequest {
   string base64_payload = 2;
   string collection_id = 3;
   repeated NftAttribute attributes = 4;
+  InscriptionType orderType = 5;
 }
 
 message CreateInscriptionOrderResponse {

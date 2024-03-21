@@ -8,11 +8,24 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
+enum InscriptionState {
+  PEND = 0;
+  UNCONFIRMED = 1;
+  CONFIRMED = 2;
+}
+
+enum InscriptionType {
+  COLLECTION = 0;
+  ITEM = 1;
+}
+
+message InscriptionAttribute {
+  string trait_type = 1;
+  string value = 2;
+}
+
 message Inscription {
-  message Attribute {
-    string trait_type = 1;
-    string value = 2;
-  }
+
   string id = 1;
   string chain_id = 2;
   string inscription_id = 3;
@@ -22,5 +35,24 @@ message Inscription {
   string order_id = 7;
   string file_uri = 8;
   string file_value = 9;
-  repeated Attribute attributes = 10;
+  repeated InscriptionAttribute attributes = 10;
+}
+
+message InscriptionOrder {
+  enum OrderState {
+    PENDING = 0;
+    INSCRIBING = 1;
+    MINTED = 2;
+    CLOSE = 3;
+  }
+
+  string id = 1;
+  string chain_id = 2;
+  InscriptionType inscription_type = 3;
+  OrderState order_state = 4;
+  InscriptionState inscription_state = 5;
+  string payment_transaction = 6;
+  string commit_transaction = 7;
+  string reveal_transaction = 8;
+  string platform_fee_recipient = 9;
 }
