@@ -55,4 +55,5 @@ message InscriptionOrder {
   string commit_transaction = 7;
   string reveal_transaction = 8;
   string platform_fee_recipient = 9;
+  int64  fee_amt = 10;
 }
