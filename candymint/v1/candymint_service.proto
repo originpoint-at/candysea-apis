@@ -64,14 +64,13 @@ message LoginWithWalletResponse {
 }
 
 message CreateCollectionRequest {
-  string chain_id = 1;
-  string display_name = 2;
-  string description = 3;
+  string display_name = 1;
+  string description = 2;
   // the HTTPS URI of the GitHub repository
-  string github_repo_uri = 4;
+  string github_repo_uri = 3;
   // TOOD: consider using OAuth2 instead
-  string github_access_token = 5;
-  Collection.Type type = 6;
+  string github_access_token = 4;
+  Collection.Type type = 5;
 }
 
 message GetCollectionRequest {
