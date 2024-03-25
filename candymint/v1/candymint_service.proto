@@ -41,6 +41,7 @@ message ListPublicCollectionsRequest {
   Channel channel = 1;
   int32 limit = 2;
   int32 offset = 3;
+  string chain_id = 4;
 }
 
 message ListPublicCollectionsResponse {
@@ -89,6 +90,7 @@ message ListRepoTagsResponse {
 message ListCollectionsRequest {
   int32 limit = 1;
   int32 offset = 2;
+  string chain_id = 3;
 }
 
 message ListCollectionsResponse {
@@ -139,6 +141,7 @@ message ListNFTsRequest {
   string collection_name = 1;
   int32 limit = 2;
   int32 offset = 3;
+  string chain_id = 4;
 }
 
 message ListNFTsResponse {
