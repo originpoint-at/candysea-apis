@@ -91,7 +91,6 @@ message ListRepoTagsResponse {
 message ListCollectionsRequest {
   int32 limit = 1;
   int32 offset = 2;
-  string chain_id = 3;
 }
 
 message ListCollectionsResponse {
