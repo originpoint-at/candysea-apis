@@ -76,6 +76,7 @@ message CreateCollectionRequest {
 
 message GetCollectionRequest {
   string collection_name = 1;
+  string chain_id = 2;
 }
 
 message ListRepoTagsRequest {
@@ -142,6 +143,7 @@ message ListNFTsRequest {
   int32 limit = 2;
   int32 offset = 3;
   string chain_id = 4;
+  string  address = 5;
 }
 
 message ListNFTsResponse {
