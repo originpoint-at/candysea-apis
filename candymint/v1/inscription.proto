@@ -42,8 +42,9 @@ message InscriptionOrder {
   enum OrderState {
     PENDING = 0;
     INSCRIBING = 1;
-    MINTED = 2;
-    CLOSE = 3;
+    CONFIRMING = 2;
+    MINTED = 3;
+    ClOSED = 4;
   }
 
   string id = 1;
@@ -55,5 +56,8 @@ message InscriptionOrder {
   string commit_transaction = 7;
   string reveal_transaction = 8;
   string platform_fee_recipient = 9;
-  int64  fee_amt = 10;
+  int64  platform_fee = 10;
+  string mint_fee_recipient = 11;
+  int64  mint_price = 12;
+  string inscription_id = 13;
 }
