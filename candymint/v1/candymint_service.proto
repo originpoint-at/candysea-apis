@@ -31,6 +31,7 @@ service CandyMintService {
   rpc GetInscriptionOrder(GetInscriptionOrderRequest) returns (InscriptionOrder) {}
   rpc ListInscriptionOrders(ListInscriptionOrdersRequest) returns (ListInscriptionOrdersResponse) {}
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
+  // TODO list unspent utxo and list ordinals utxo
 }
 
 message ListPublicCollectionsRequest {
