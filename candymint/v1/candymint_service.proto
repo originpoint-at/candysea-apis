@@ -32,7 +32,7 @@ service CandyMintService {
   rpc GetInscriptionOrder(GetInscriptionOrderRequest) returns (InscriptionOrder) {}
   rpc ListInscriptionOrders(ListInscriptionOrdersRequest) returns (ListInscriptionOrdersResponse) {}
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
-  rpc listUnspentUtxos(ListUnspentUtxosRequest)returns(ListUnspentUtxosResponse){}
+  rpc ListUnspentUtxos(ListUnspentUtxosRequest)returns(ListUnspentUtxosResponse){}
 }
 
 message ListPublicCollectionsRequest {
@@ -165,7 +165,7 @@ message CreateInscriptionOrderRequest {
   string base64_payload = 2;
   string collection_id = 3;
   repeated NftAttribute attributes = 4;
-  InscriptionType orderType = 5;
+  InscriptionType order_type = 5;
   // sig or token id
   string item_sig = 6;
 }
