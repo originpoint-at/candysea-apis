@@ -32,9 +32,8 @@ message Inscription {
   string genesis_location = 5;
   string current_location = 6;
   string name = 7;
-  string order_id = 8;
-  string base64payload = 9;
-  repeated InscriptionAttribute attributes = 10;
+  string base64payload = 8;
+  repeated InscriptionAttribute attributes = 9;
 }
 
 message InscriptionOrder {
