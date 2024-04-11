@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1;
+
+import "google/protobuf/timestamp.proto";
+import "candymint/v1/collection.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1";
+
+message Utxo {
+  string id = 1;
+  int64 satoshi = 2;
+  int64 block_height = 3;
+  string tx_hash = 4;
+  int32 output_index = 5;
+  string script_pubkey = 6;
+}
+
