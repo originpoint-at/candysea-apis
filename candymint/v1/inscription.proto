@@ -49,13 +49,12 @@ message InscriptionOrder {
   string chain_id = 2;
   InscriptionType inscription_type = 3;
   OrderState order_state = 4;
-  InscriptionState inscription_state = 5;
-  string payment_transaction = 6;
-  string commit_transaction = 7;
-  string reveal_transaction = 8;
-  string platform_fee_recipient = 9;
-  int64  platform_fee = 10;
-  string mint_fee_recipient = 11;
-  int64  mint_price = 12;
-  string inscription_id = 13;
+  string payment_transaction = 5;
+  string commit_transaction = 6;
+  string reveal_transaction = 7;
+  string platform_fee_recipient = 8;
+  int64  platform_fee = 9;
+  string mint_fee_recipient = 10;
+  int64  mint_price = 11;
+  string inscription_id = 12;
 }
