@@ -33,7 +33,10 @@ service CandyMintService {
   rpc ListInscriptionOrders(ListInscriptionOrdersRequest) returns (ListInscriptionOrdersResponse) {}
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
   rpc ListUnspentUtxos(ListUnspentUtxosRequest)returns(ListUnspentUtxosResponse){}
+  rpc GetFeeRate(EmptyRequest)returns(RecommendedFeeResponse){}
 }
+
+message EmptyRequest{}
 
 message ListPublicCollectionsRequest {
   enum Channel {
@@ -213,3 +216,9 @@ message ListUnspentUtxosResponse {
   int32 total = 2;
 }
 
+message RecommendedFeeResponse{
+  uint64 fastest_fee = 1 ;
+  uint64 half_hour_fee = 2 ;
+  uint64 hour_fee = 3 ;
+  uint64 economy_fee = 4 ;
+}
