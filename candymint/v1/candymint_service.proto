@@ -161,6 +161,7 @@ message GetNFTRequest {
   string collection_id = 1;
   string collection_name = 2;
   string token_id = 3;
+  string chain_id = 4;
 }
 
 message CreateInscriptionOrderRequest {
