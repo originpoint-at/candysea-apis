@@ -34,6 +34,7 @@ service CandyMintService {
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
   rpc ListUnspentUtxos(ListUnspentUtxosRequest)returns(ListUnspentUtxosResponse){}
   rpc GetFeeRate(EmptyRequest)returns(RecommendedFeeResponse){}
+  rpc CheckItemSig(CheckItemSigRequest)returns(CheckItemSigResponse){}
 }
 
 message EmptyRequest{}
@@ -222,4 +223,13 @@ message RecommendedFeeResponse{
   uint64 half_hour_fee = 2 ;
   uint64 hour_fee = 3 ;
   uint64 economy_fee = 4 ;
+}
+
+message CheckItemSigRequest{
+  string item_sig = 1;
+  string collection_id = 2;
+}
+
+message CheckItemSigResponse{
+  bool available = 1;
 }
