@@ -35,6 +35,7 @@ service CandyMintService {
   rpc ListUnspentUtxos(ListUnspentUtxosRequest)returns(ListUnspentUtxosResponse){}
   rpc GetFeeRate(EmptyRequest)returns(RecommendedFeeResponse){}
   rpc CheckItemSig(CheckItemSigRequest)returns(CheckItemSigResponse){}
+  rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
 }
 
 message EmptyRequest{}
@@ -232,4 +233,18 @@ message CheckItemSigRequest{
 
 message CheckItemSigResponse{
   bool available = 1;
+}
+
+message ListFeeDetailsEventsRequest{
+  string collection_id = 1;
+}
+
+message ListFeeDetailsEventsResponse{
+  string sender = 1;
+  string origin = 2;
+  string token_id = 3;
+  int64  fee = 4;
+  int64  price = 5;
+  string chain_id = 6;
+  string contract = 7;
 }
