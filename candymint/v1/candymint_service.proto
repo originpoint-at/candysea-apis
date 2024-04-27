@@ -36,6 +36,7 @@ service CandyMintService {
   rpc GetFeeRate(EmptyRequest)returns(RecommendedFeeResponse){}
   rpc CheckItemSig(CheckItemSigRequest)returns(CheckItemSigResponse){}
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
+  // TODO rpc GetMintPermit(EmptyRequest)retrns
 }
 
 message EmptyRequest{}
@@ -137,8 +138,9 @@ message CreateReleaseRequest {
 message ListReleasesRequest {
   string collection_id = 1;
   string collection_name = 2;
-  int32 limit = 3;
-  int32 offset = 4;
+  string chain_id = 3;
+  int32 limit = 4;
+  int32 offset = 5;
 }
 
 message ListReleasesResponse {
