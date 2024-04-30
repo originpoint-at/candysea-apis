@@ -40,5 +40,5 @@ message Collection {
   reserved 17;
   reserved "update_time";
   string inscription_order_id = 18;
-  string release_announcement = 19;
+  string pre_launch_announcement = 19;
 }
