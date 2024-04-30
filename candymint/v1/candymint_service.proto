@@ -36,6 +36,7 @@ service CandyMintService {
   rpc GetFeeRate(EmptyRequest)returns(RecommendedFeeResponse){}
   rpc CheckItemSig(CheckItemSigRequest)returns(CheckItemSigResponse){}
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
+  rpc GetMintPermit(GetMintPermitRequest)returns(GetMintPermitResponse){}
   // TODO rpc GetMintPermit(EmptyRequest)retrns
 }
 
@@ -75,9 +76,7 @@ message LoginWithWalletResponse {
 message CreateCollectionRequest {
   string display_name = 1;
   string description = 2;
-  // the HTTPS URI of the GitHub repository
   string github_repo_uri = 3;
-  // TOOD: consider using OAuth2 instead
   string github_access_token = 4;
   Collection.Type type = 5;
 }
@@ -117,6 +116,8 @@ message UpdateCollectionRequest {
   string contract_tx_hash = 8;
   int64 single_price = 9;
   int64 max_supply = 10;
+  string mint_fee_recipient = 11;
+  string pre_launch_announcement = 12;
 }
 
 message SyncCollectionOnChainDataRequest {
@@ -255,4 +256,16 @@ message ListFeeDetailsEventsResponse{
   }
   repeated FeeDetailsEvent feeDetailsEvents = 1;
   int64 total = 2;
+}
+
+message GetMintPermitRequest{
+  string collection_id = 1;
+  string item_sig = 2;
+}
+
+message GetMintPermitResponse{
+  string signature = 1;
+  string base64_payload = 2;
+  string traits = 3;
+  int64 timestamp = 4;
 }
