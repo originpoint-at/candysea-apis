@@ -14,7 +14,7 @@ message Release {
     PROCESSING = 1;
     PROCESS_SUCCEEDED = 2;
     PROCESS_FAILED = 3;
-    PUBLISHED = 4;
+//    PUBLISHED = 4;
   }
   string version = 1;
   Status status = 2;
@@ -22,4 +22,5 @@ message Release {
   string wasm_es_wrapper_uri = 4;
   string commit_hash = 5;
   google.protobuf.Timestamp create_time = 6;
+  google.protobuf.Timestamp publish_time = 7;
 }
