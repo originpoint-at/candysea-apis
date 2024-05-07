@@ -114,6 +114,7 @@ message UpdateCollectionRequest {
   string contract_tx_hash = 8;
   int64 single_price = 9;
   int64 max_supply = 10;
+  string pre_launch_announcement = 11;
 }
 
 message SyncCollectionOnChainDataRequest {
