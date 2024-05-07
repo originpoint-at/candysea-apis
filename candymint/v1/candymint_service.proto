@@ -281,6 +281,6 @@ message GetFeeMetricsRequest{
 }
 
 message GetFeeMetricsResponse{
-  int64 totalAccumulatedFee = 1;
+  int64 totalFee = 1;
   int64 totalWithdrawFee = 2;
 }
