@@ -41,4 +41,5 @@ message Collection {
   reserved "update_time";
   string inscription_order_id = 18;
   string pre_launch_announcement = 19;
+  string withdraw_recipient = 20;
 }
