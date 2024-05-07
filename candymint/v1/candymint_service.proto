@@ -39,8 +39,8 @@ service CandyMintService {
   rpc CheckAvailableImg(CheckAvailableImgRequest)returns(CheckAvailableImgResponse){}
 
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
-  //Withdraw(address _sender, address _recipient, uint256 _amount);
-  rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest)returns(ListFeeWithdrawnEventsResponse);
+  rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest)returns(ListFeeWithdrawnEventsResponse){};
+  rpc GetFeeMetrics(GetFeeMetricsRequest) returns(GetFeeMetricsResponse){};
 
 }
 
@@ -274,4 +274,13 @@ message ListFeeWithdrawnEventsRequest{
 message ListFeeWithdrawnEventsResponse{
   repeated FeeWithdrawEvent feeWithdrawnEvents = 1;
   int64 total = 2;
+}
+
+message GetFeeMetricsRequest{
+  string collection_id = 1;
+}
+
+message GetFeeMetricsResponse{
+  int64 totalAccumulatedFee = 1;
+  int64 totalWithdrawFee = 2;
 }
