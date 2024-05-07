@@ -14,7 +14,6 @@ message Release {
     PROCESSING = 1;
     PROCESS_SUCCEEDED = 2;
     PROCESS_FAILED = 3;
-//    PUBLISHED = 4;
   }
   string version = 1;
   Status status = 2;
