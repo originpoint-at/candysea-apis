@@ -34,9 +34,10 @@ service CandyMintService {
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
   rpc ListUnspentUtxos(ListUnspentUtxosRequest)returns(ListUnspentUtxosResponse){}
   rpc GetFeeRate(EmptyRequest)returns(RecommendedFeeResponse){}
-  rpc CheckItemSig(CheckItemSigRequest)returns(CheckItemSigResponse){}
-  rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
   rpc GetMintPermit(GetMintPermitRequest)returns(GetMintPermitResponse){}
+  rpc CheckAvailableImg(CheckAvailableImgRequest)returns(CheckAvailableImgResponse){}
+  rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
+
 }
 
 message EmptyRequest{}
@@ -228,12 +229,12 @@ message RecommendedFeeResponse{
   uint64 economy_fee = 4 ;
 }
 
-message CheckItemSigRequest{
-  string item_sig = 1;
-  string collection_id = 2;
+message CheckAvailableImgRequest{
+  string collection_id = 1;
+  string img_id = 2;
 }
 
-message CheckItemSigResponse{
+message CheckAvailableImgResponse{
   bool available = 1;
 }
 
