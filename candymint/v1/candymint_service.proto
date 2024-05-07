@@ -115,6 +115,7 @@ message UpdateCollectionRequest {
   int64 single_price = 9;
   int64 max_supply = 10;
   string pre_launch_announcement = 11;
+  string mint_fee_recipient = 12;
 }
 
 message SyncCollectionOnChainDataRequest {
