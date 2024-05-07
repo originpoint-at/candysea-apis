@@ -9,6 +9,7 @@ import "candymint/v1/public_collection.proto";
 import "candymint/v1/release.proto";
 import "candymint/v1/repo_tag.proto";
 import "candymint/v1/utxo.proto";
+import "candymint/v1/events.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
@@ -36,7 +37,10 @@ service CandyMintService {
   rpc GetFeeRate(EmptyRequest)returns(RecommendedFeeResponse){}
   rpc GetMintPermit(GetMintPermitRequest)returns(GetMintPermitResponse){}
   rpc CheckAvailableImg(CheckAvailableImgRequest)returns(CheckAvailableImgResponse){}
+
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
+  //Withdraw(address _sender, address _recipient, uint256 _amount);
+  rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest)returns(ListFeeWithdrawnEventsResponse);
 
 }
 
@@ -245,15 +249,6 @@ message ListFeeDetailsEventsRequest{
 }
 
 message ListFeeDetailsEventsResponse{
-  message FeeDetailsEvent{
-    string sender = 1;
-    string origin = 2;
-    string token_id = 3;
-    int64  fee = 4;
-    int64  price = 5;
-    string chain_id = 6;
-    string contract = 7;
-  }
   repeated FeeDetailsEvent feeDetailsEvents = 1;
   int64 total = 2;
 }
@@ -268,4 +263,15 @@ message GetMintPermitResponse{
   string base64_payload = 2;
   string traits = 3;
   int64 timestamp = 4;
+}
+
+message ListFeeWithdrawnEventsRequest{
+  int32 limit = 1;
+  int32 offset = 2;
+  string collection_id = 3;
+}
+
+message ListFeeWithdrawnEventsResponse{
+  repeated FeeWithdrawEvent feeWithdrawnEvents = 1;
+  int64 total = 2;
 }
