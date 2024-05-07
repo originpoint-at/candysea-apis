@@ -37,7 +37,6 @@ service CandyMintService {
   rpc CheckItemSig(CheckItemSigRequest)returns(CheckItemSigResponse){}
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
   rpc GetMintPermit(GetMintPermitRequest)returns(GetMintPermitResponse){}
-  // TODO rpc GetMintPermit(EmptyRequest)retrns
 }
 
 message EmptyRequest{}
@@ -176,7 +175,7 @@ message CreateInscriptionOrderRequest {
   repeated NftAttribute attributes = 4;
   InscriptionType order_type = 5;
   // sig or token id
-  string item_sig = 6;
+  string img_id = 6;
 }
 
 message CreateInscriptionOrderResponse {
@@ -260,7 +259,7 @@ message ListFeeDetailsEventsResponse{
 
 message GetMintPermitRequest{
   string collection_id = 1;
-  string item_sig = 2;
+  string img_id = 2;
 }
 
 message GetMintPermitResponse{
