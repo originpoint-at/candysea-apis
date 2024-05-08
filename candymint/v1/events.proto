@@ -23,7 +23,7 @@ message FeeDetailsEvent{
 message FeeWithdrawEvent{
   string sender = 1;
   string recipient = 2;
-  string amount = 3;
+  int64 amount = 3;
   string chain_id = 4;
   string contract = 5;
   google.protobuf.Timestamp block_timestamp = 6;
