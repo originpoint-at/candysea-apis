@@ -29,23 +29,24 @@ service CandyMintService {
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (Nft) {}
+
   rpc CreateInscriptionOrder(CreateInscriptionOrderRequest) returns (InscriptionOrder) {}
   rpc GetInscriptionOrder(GetInscriptionOrderRequest) returns (InscriptionOrder) {}
   rpc ListInscriptionOrders(ListInscriptionOrdersRequest) returns (ListInscriptionOrdersResponse) {}
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
   rpc ListUnspentUtxos(ListUnspentUtxosRequest)returns(ListUnspentUtxosResponse){}
-  rpc GetFeeRate(EmptyRequest)returns(RecommendedFeeResponse){}
-  rpc GetMintPermit(GetMintPermitRequest)returns(GetMintPermitResponse){}
+  rpc GetFeeRate(Empty)returns(RecommendedFeeResponse){}
   rpc CheckAvailableImg(CheckAvailableImgRequest)returns(CheckAvailableImgResponse){}
+  rpc GetMintPermit(GetMintPermitRequest)returns(GetMintPermitResponse){}
+  rpc ListPaidInscriptionOrders(ListPaidInscriptionOrdersRequest)returns(ListPaidInscriptionOrdersResponse){}
 
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
   rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest)returns(ListFeeWithdrawnEventsResponse){};
   rpc GetFeeMetrics(GetFeeMetricsRequest) returns(GetFeeMetricsResponse){};
-  rpc ListPaidInscriptionOrders(ListPaidInscriptionOrdersRequest)returns(ListPaidInscriptionOrdersResponse){}
-
+  rpc PublishRelease(PublishReleaseRequest)returns(Empty){};
 }
 
-message EmptyRequest{}
+message Empty{}
 
 message ListPublicCollectionsRequest {
   enum Channel {
@@ -282,8 +283,8 @@ message GetFeeMetricsRequest{
 }
 
 message GetFeeMetricsResponse{
-  int64 totalFee = 1;
-  int64 totalWithdrawFee = 2;
+  int64 total_fee = 1;
+  int64 total_withdrawn_fee = 2;
 }
 
 message ListPaidInscriptionOrdersRequest{
@@ -295,4 +296,9 @@ message ListPaidInscriptionOrdersRequest{
 message ListPaidInscriptionOrdersResponse{
   repeated InscriptionOrder orders = 1;
   int32 total = 2;
+}
+
+message PublishReleaseRequest{
+  string release_id = 1;
+  google.protobuf.Timestamp publish_time = 2;
 }
