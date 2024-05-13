@@ -25,6 +25,7 @@ service CandyMintService {
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
   rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
+  rpc TogglePauseCollection(TogglePauseCollectionRequest) returns (google.protobuf.Empty) {}
   rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
@@ -134,6 +135,12 @@ message SyncCollectionOnChainDataRequest {
   int64 single_price = 5;
   int64 max_supply = 6;
   string transaction_hash = 7;
+}
+
+message TogglePauseCollectionRequest {
+  string collection_id = 1;
+  bool is_pause = 2;
+  string pause_announcement = 3;
 }
 
 message CreateReleaseRequest {

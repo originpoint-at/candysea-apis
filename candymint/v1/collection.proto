@@ -36,6 +36,7 @@ message Collection {
   google.protobuf.Timestamp create_time = 14;
   string contract_tx_hash = 15;
   string inscription_order_id = 16;
-  string pre_launch_announcement = 17;
-  string mint_fee_recipient = 18;
+  string mint_fee_recipient = 17;
+  bool is_paused = 18;
+  bool pause_announcement = 19;
 }
