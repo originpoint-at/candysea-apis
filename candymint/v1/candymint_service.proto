@@ -11,6 +11,7 @@ import "candymint/v1/repo_tag.proto";
 import "candymint/v1/utxo.proto";
 import "candymint/v1/events.proto";
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
@@ -37,7 +38,7 @@ service CandyMintService {
   rpc ListInscriptionOrders(ListInscriptionOrdersRequest) returns (ListInscriptionOrdersResponse) {}
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
   rpc ListUnspentUtxos(ListUnspentUtxosRequest)returns(ListUnspentUtxosResponse){}
-  rpc GetFeeRate(Empty)returns(RecommendedFeeResponse){}
+  rpc GetFeeRate(google.protobuf.Empty)returns(RecommendedFeeResponse){}
   rpc CheckAvailableImg(CheckAvailableImgRequest)returns(CheckAvailableImgResponse){}
   rpc GetMintPermit(GetMintPermitRequest)returns(GetMintPermitResponse){}
   rpc ListPaidInscriptionOrders(ListPaidInscriptionOrdersRequest)returns(ListPaidInscriptionOrdersResponse){}
@@ -46,8 +47,6 @@ service CandyMintService {
   rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest)returns(ListFeeWithdrawnEventsResponse){};
   rpc GetFeeMetrics(GetFeeMetricsRequest) returns(GetFeeMetricsResponse){};
 }
-
-message Empty{}
 
 message ListPublicCollectionsRequest {
   enum Channel {
@@ -123,8 +122,8 @@ message UpdateCollectionRequest {
   string contract_tx_hash = 8;
   int64 single_price = 9;
   int64 max_supply = 10;
-  string pre_launch_announcement = 11;
-  string mint_fee_recipient = 12;
+  string mint_fee_recipient = 11;
+
 }
 
 message SyncCollectionOnChainDataRequest {

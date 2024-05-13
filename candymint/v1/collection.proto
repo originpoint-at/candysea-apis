@@ -38,5 +38,5 @@ message Collection {
   string inscription_order_id = 16;
   string mint_fee_recipient = 17;
   bool is_paused = 18;
-  bool pause_announcement = 19;
+  string pause_announcement = 19;
 }
