@@ -27,6 +27,7 @@ service CandyMintService {
   rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
   rpc TogglePauseCollection(TogglePauseCollectionRequest) returns (google.protobuf.Empty) {}
   rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
+  rpc PublishRelease(PublishReleaseRequest) returns (google.protobuf.Empty) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (Nft) {}
@@ -44,7 +45,6 @@ service CandyMintService {
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
   rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest)returns(ListFeeWithdrawnEventsResponse){};
   rpc GetFeeMetrics(GetFeeMetricsRequest) returns(GetFeeMetricsResponse){};
-  rpc PublishRelease(PublishReleaseRequest)returns(Empty){};
 }
 
 message Empty{}
@@ -147,6 +147,12 @@ message CreateReleaseRequest {
   string collection_id = 1;
   string tag = 2;
   string description = 3;
+}
+
+message PublishReleaseRequest {
+  string release_id = 1;
+  string announcement = 2;
+  google.protobuf.Timestamp publish_time = 3;
 }
 
 message ListReleasesRequest {
@@ -303,9 +309,4 @@ message ListPaidInscriptionOrdersRequest{
 message ListPaidInscriptionOrdersResponse{
   repeated InscriptionOrder orders = 1;
   int32 total = 2;
-}
-
-message PublishReleaseRequest{
-  string release_id = 1;
-  google.protobuf.Timestamp publish_time = 2;
 }
