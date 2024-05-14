@@ -32,11 +32,12 @@ message Collection {
   int64 price = 11;
   // readonly
   int32 max_supply_count = 12;
-  Release latest_release = 13;
-  google.protobuf.Timestamp create_time = 14;
-  string contract_tx_hash = 15;
-  string inscription_order_id = 16;
-  string mint_fee_recipient = 17;
-  bool is_paused = 18;
-  string pause_announcement = 19;
+  Release active_release = 13;
+  Release next_release = 14;
+  google.protobuf.Timestamp create_time = 15;
+  string contract_tx_hash = 16;
+  string inscription_order_id = 17;
+  string mint_fee_recipient = 18;
+  bool is_paused = 19;
+  string pause_announcement = 20;
 }
