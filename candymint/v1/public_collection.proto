@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package io.candysea.candymint.v1;
 
-import "candymint/v1/release.proto";
 import "candymint/v1/collection.proto";
+import "candymint/v1/release.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";

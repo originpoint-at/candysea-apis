@@ -14,4 +14,3 @@ message Utxo {
   int32 output_index = 5;
   string script_pubkey = 6;
 }
-

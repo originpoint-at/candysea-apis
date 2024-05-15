@@ -9,10 +9,9 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
-
-message FeeDetailsEvent{
+message FeeDetailsEvent {
   string token_id = 1;
-  int64  price = 2;
+  int64 price = 2;
   string chain_id = 3;
   string contract = 4;
   google.protobuf.Timestamp block_timestamp = 5;
@@ -20,8 +19,7 @@ message FeeDetailsEvent{
   string origin_address = 7;
 }
 
-
-message FeeWithdrawEvent{
+message FeeWithdrawEvent {
   string sender = 1;
   string recipient = 2;
   int64 amount = 3;
@@ -30,3 +28,4 @@ message FeeWithdrawEvent{
   google.protobuf.Timestamp block_timestamp = 6;
   string tx_hash = 7;
 }
+
