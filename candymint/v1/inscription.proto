@@ -11,7 +11,7 @@ option java_package = "io.candysea.candymint.v1";
 enum InscriptionState {
   PEND = 0;
   MINTED = 1;
-//  CONFIRMED = 2;
+  // CONFIRMED = 2;
 }
 
 enum InscriptionType {
@@ -53,8 +53,9 @@ message InscriptionOrder {
   string commit_transaction = 6;
   string reveal_transaction = 7;
   string platform_fee_recipient = 8;
-  int64  platform_fee = 9;
+  int64 platform_fee = 9;
   string mint_fee_recipient = 10;
-  int64  mint_price = 11;
+  int64 mint_price = 11;
   string inscription_id = 12;
 }
+

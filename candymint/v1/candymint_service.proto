@@ -3,15 +3,15 @@ syntax = "proto3";
 package io.candysea.candymint.v1;
 
 import "candymint/v1/collection.proto";
+import "candymint/v1/events.proto";
 import "candymint/v1/inscription.proto";
 import "candymint/v1/nft.proto";
 import "candymint/v1/public_collection.proto";
 import "candymint/v1/release.proto";
 import "candymint/v1/repo_tag.proto";
 import "candymint/v1/utxo.proto";
-import "candymint/v1/events.proto";
-import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
@@ -37,15 +37,15 @@ service CandyMintService {
   rpc GetInscriptionOrder(GetInscriptionOrderRequest) returns (InscriptionOrder) {}
   rpc ListInscriptionOrders(ListInscriptionOrdersRequest) returns (ListInscriptionOrdersResponse) {}
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
-  rpc ListUnspentUtxos(ListUnspentUtxosRequest)returns(ListUnspentUtxosResponse){}
-  rpc GetFeeRate(google.protobuf.Empty)returns(RecommendedFeeResponse){}
-  rpc CheckAvailableImg(CheckAvailableImgRequest)returns(CheckAvailableImgResponse){}
-  rpc GetMintPermit(GetMintPermitRequest)returns(GetMintPermitResponse){}
-  rpc ListPaidInscriptionOrders(ListPaidInscriptionOrdersRequest)returns(ListPaidInscriptionOrdersResponse){}
+  rpc ListUnspentUtxos(ListUnspentUtxosRequest) returns (ListUnspentUtxosResponse) {}
+  rpc GetFeeRate(google.protobuf.Empty) returns (RecommendedFeeResponse) {}
+  rpc CheckAvailableImg(CheckAvailableImgRequest) returns (CheckAvailableImgResponse) {}
+  rpc GetMintPermit(GetMintPermitRequest) returns (GetMintPermitResponse) {}
+  rpc ListPaidInscriptionOrders(ListPaidInscriptionOrdersRequest) returns (ListPaidInscriptionOrdersResponse) {}
 
-  rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest)returns(ListFeeDetailsEventsResponse){}
-  rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest)returns(ListFeeWithdrawnEventsResponse){};
-  rpc GetFeeMetrics(GetFeeMetricsRequest) returns(GetFeeMetricsResponse){};
+  rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest) returns (ListFeeDetailsEventsResponse) {}
+  rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest) returns (ListFeeWithdrawnEventsResponse) {}
+  rpc GetFeeMetrics(GetFeeMetricsRequest) returns (GetFeeMetricsResponse) {}
 }
 
 message ListPublicCollectionsRequest {
@@ -124,7 +124,6 @@ message UpdateCollectionRequest {
   int64 single_price = 9;
   int64 max_supply = 10;
   string mint_fee_recipient = 11;
-
 }
 
 message SyncCollectionOnChainDataRequest {
@@ -173,7 +172,7 @@ message ListNFTsRequest {
   int32 limit = 2;
   int32 offset = 3;
   string chain_id = 4;
-  string  address = 5;
+  string address = 5;
 }
 
 message ListNFTsResponse {
@@ -241,72 +240,72 @@ message ListUnspentUtxosResponse {
   int32 total = 2;
 }
 
-message RecommendedFeeResponse{
-  uint64 fastest_fee = 1 ;
-  uint64 half_hour_fee = 2 ;
-  uint64 hour_fee = 3 ;
-  uint64 economy_fee = 4 ;
+message RecommendedFeeResponse {
+  uint64 fastest_fee = 1;
+  uint64 half_hour_fee = 2;
+  uint64 hour_fee = 3;
+  uint64 economy_fee = 4;
 }
 
-message CheckAvailableImgRequest{
+message CheckAvailableImgRequest {
   string collection_id = 1;
   string img_id = 2;
 }
 
-message CheckAvailableImgResponse{
+message CheckAvailableImgResponse {
   bool available = 1;
 }
 
-message ListFeeDetailsEventsRequest{
+message ListFeeDetailsEventsRequest {
   int32 limit = 1;
   int32 offset = 2;
   string collection_id = 3;
 }
 
-message ListFeeDetailsEventsResponse{
+message ListFeeDetailsEventsResponse {
   repeated FeeDetailsEvent feeDetailsEvents = 1;
   int64 total = 2;
 }
 
-message GetMintPermitRequest{
+message GetMintPermitRequest {
   string collection_id = 1;
   string img_id = 2;
 }
 
-message GetMintPermitResponse{
+message GetMintPermitResponse {
   string signature = 1;
   string base64_payload = 2;
   string traits = 3;
   int64 timestamp = 4;
 }
 
-message ListFeeWithdrawnEventsRequest{
+message ListFeeWithdrawnEventsRequest {
   int32 limit = 1;
   int32 offset = 2;
   string collection_id = 3;
 }
 
-message ListFeeWithdrawnEventsResponse{
+message ListFeeWithdrawnEventsResponse {
   repeated FeeWithdrawEvent feeWithdrawnEvents = 1;
   int64 total = 2;
 }
 
-message GetFeeMetricsRequest{
+message GetFeeMetricsRequest {
   string collection_id = 1;
 }
 
-message GetFeeMetricsResponse{
+message GetFeeMetricsResponse {
   int64 total_fee = 1;
   int64 total_withdrawn_fee = 2;
 }
 
-message ListPaidInscriptionOrdersRequest{
+message ListPaidInscriptionOrdersRequest {
   int32 limit = 1;
   int32 offset = 2;
   string collection_id = 3;
 }
 
-message ListPaidInscriptionOrdersResponse{
+message ListPaidInscriptionOrdersResponse {
   repeated InscriptionOrder orders = 1;
   int32 total = 2;
 }
