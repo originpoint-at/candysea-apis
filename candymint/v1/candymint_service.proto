@@ -160,6 +160,7 @@ message ListReleasesRequest {
   string chain_id = 3;
   int32 limit = 4;
   int32 offset = 5;
+  Release.Status status = 6;
 }
 
 message ListReleasesResponse {
