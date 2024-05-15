@@ -17,6 +17,7 @@ message FeeDetailsEvent{
   string contract = 4;
   google.protobuf.Timestamp block_timestamp = 5;
   string tx_hash = 6;
+  string origin_address = 7;
 }
 
 
