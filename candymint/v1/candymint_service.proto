@@ -55,9 +55,7 @@ message ListPublicCollectionsRequest {
     TOP_MINTED = 1;
   }
   Channel channel = 1;
-  int32 limit = 2;
-  int32 offset = 3;
-  string chain_id = 4;
+  string chain_id = 2;
 }
 
 message ListPublicCollectionsResponse {
