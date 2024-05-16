@@ -275,7 +275,8 @@ message ListFeeDetailsEventsResponse {
 
 message GetMintPermitRequest {
   string collection_id = 1;
-  string img_id = 2;
+  string release_id = 2;
+  string img_id = 3;
 }
 
 message GetMintPermitResponse {
