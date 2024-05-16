@@ -30,6 +30,7 @@ service CandyMintService {
   rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
   rpc PublishRelease(PublishReleaseRequest) returns (google.protobuf.Empty) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
+  rpc GetRelease(GetReleaseRequest) returns (Release) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (Nft) {}
 
@@ -161,6 +162,10 @@ message ListReleasesRequest {
   int32 limit = 4;
   int32 offset = 5;
   Release.Status status = 6;
+}
+
+message GetReleaseRequest {
+  string release_id = 1;
 }
 
 message ListReleasesResponse {
