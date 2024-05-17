@@ -122,9 +122,7 @@ message UpdateCollectionRequest {
   string github_access_token = 6;
   Collection.Type type = 7;
   string contract_tx_hash = 8;
-  int64 single_price = 9;
-  int64 max_supply = 10;
-  string mint_fee_recipient = 11;
+  string mint_fee_recipient = 9;
 }
 
 message SyncCollectionOnChainDataRequest {
