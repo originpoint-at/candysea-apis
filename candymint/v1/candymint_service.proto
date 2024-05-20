@@ -20,6 +20,7 @@ option java_package = "io.candysea.candymint.v1";
 service CandyMintService {
   rpc ListPublicCollections(ListPublicCollectionsRequest) returns (ListPublicCollectionsResponse) {}
   rpc LoginWithWallet(LoginWithWalletRequest) returns (LoginWithWalletResponse) {}
+  rpc  RefreshToken(google.protobuf.Empty)returns(RefreshTokenResponse){}
   rpc CreateCollection(CreateCollectionRequest) returns (Collection) {}
   rpc GetCollection(GetCollectionRequest) returns (Collection) {}
   rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
@@ -313,4 +314,8 @@ message ListPaidInscriptionOrdersRequest {
 message ListPaidInscriptionOrdersResponse {
   repeated InscriptionOrder orders = 1;
   int32 total = 2;
+}
+
+message RefreshTokenResponse{
+  string access_token = 1;
 }
