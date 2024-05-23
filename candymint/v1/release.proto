@@ -23,4 +23,5 @@ message Release {
   string commit_hash = 6;
   google.protobuf.Timestamp create_time = 7;
   google.protobuf.Timestamp publish_time = 8;
+  string announcement = 9;
 }
