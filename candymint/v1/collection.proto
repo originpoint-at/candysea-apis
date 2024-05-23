@@ -9,6 +9,7 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
+// next_id: 23
 message Collection {
   enum Type {
     TYPE_UNSPECIFIED = 0;
@@ -32,12 +33,15 @@ message Collection {
   int64 price = 11;
   // readonly
   int32 max_supply_count = 12;
+  int32 total_supply = 22;
   Release active_release = 13;
   Release next_release = 14;
-  google.protobuf.Timestamp create_time = 15;
-  string contract_tx_hash = 16;
-  string inscription_order_id = 17;
-  string mint_fee_recipient = 18;
-  bool is_paused = 19;
-  string pause_announcement = 20;
+  // only for author
+  Release latest_release = 15;
+  google.protobuf.Timestamp create_time = 16;
+  string contract_tx_hash = 17;
+  string inscription_order_id = 18;
+  string mint_fee_recipient = 19;
+  bool is_paused = 20;
+  string pause_announcement = 21;
 }
