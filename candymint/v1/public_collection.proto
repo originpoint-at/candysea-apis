@@ -25,6 +25,7 @@ message PublicCollection {
   int64 price = 9;
   // readonly
   int32 max_supply_count = 10;
+  int32 total_supply = 14;
   Release latest_release = 11;
   google.protobuf.Timestamp create_time = 12;
 
