@@ -20,9 +20,10 @@ option java_package = "io.candysea.candymint.v1";
 service CandyMintService {
   rpc ListPublicCollections(ListPublicCollectionsRequest) returns (ListPublicCollectionsResponse) {}
   rpc LoginWithWallet(LoginWithWalletRequest) returns (LoginWithWalletResponse) {}
-  rpc  RefreshToken(google.protobuf.Empty)returns(RefreshTokenResponse){}
+  rpc RefreshToken(google.protobuf.Empty) returns (RefreshTokenResponse) {}
   rpc CreateCollection(CreateCollectionRequest) returns (Collection) {}
   rpc GetCollection(GetCollectionRequest) returns (Collection) {}
+  rpc ListTokenIds(ListTokenIdsRequest) returns (ListTokenIdsResponse) {}
   rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
@@ -92,6 +93,19 @@ message CreateCollectionRequest {
 message GetCollectionRequest {
   string collection_name = 1;
   string chain_id = 2;
+}
+
+// just for Custom collection
+message ListTokenIdsRequest {
+  enum Type {
+    TYPE_UNSPECIFIED = 0;
+    AVAILABLE = 1;
+    MINTED = 2;
+  }
+  string collection_id = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+  Type type = 4;
 }
 
 message ListRepoTagsRequest {
@@ -315,6 +329,6 @@ message ListPaidInscriptionOrdersResponse {
   int32 total = 2;
 }
 
-message RefreshTokenResponse{
+message RefreshTokenResponse {
   string access_token = 1;
 }
