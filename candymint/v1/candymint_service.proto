@@ -23,7 +23,7 @@ service CandyMintService {
   rpc RefreshToken(google.protobuf.Empty) returns (RefreshTokenResponse) {}
   rpc CreateCollection(CreateCollectionRequest) returns (Collection) {}
   rpc GetCollection(GetCollectionRequest) returns (Collection) {}
-  rpc ListTokenIds(ListTokenIdsRequest) returns (ListTokenIdsResponse) {}
+  rpc ListImgIds(ListImgIdsRequest) returns (ListImgIdsResponse) {}
   rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
@@ -96,7 +96,7 @@ message GetCollectionRequest {
 }
 
 // just for Custom collection
-message ListTokenIdsRequest {
+message ListImgIdsRequest {
   enum Type {
     TYPE_UNSPECIFIED = 0;
     AVAILABLE = 1;
@@ -107,6 +107,13 @@ message ListTokenIdsRequest {
   int32 offset = 3;
   Type type = 4;
 }
+
+message ListImgIdsResponse {
+  repeated string ids = 1;
+  int32  total = 2;
+
+}
+
 
 message ListRepoTagsRequest {
   string collection_id = 1;
