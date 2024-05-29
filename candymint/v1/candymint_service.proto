@@ -23,7 +23,7 @@ service CandyMintService {
   rpc RefreshToken(google.protobuf.Empty) returns (RefreshTokenResponse) {}
   rpc CreateCollection(CreateCollectionRequest) returns (Collection) {}
   rpc GetCollection(GetCollectionRequest) returns (Collection) {}
-  rpc ListImgIds(ListImgIdsRequest) returns (ListImgIdsResponse) {}
+  rpc ListNftIds(ListNftIdsRequest) returns (ListNftIdsResponse) {}
   rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
@@ -42,7 +42,7 @@ service CandyMintService {
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
   rpc ListUnspentUtxos(ListUnspentUtxosRequest) returns (ListUnspentUtxosResponse) {}
   rpc GetFeeRate(google.protobuf.Empty) returns (RecommendedFeeResponse) {}
-  rpc CheckAvailableImg(CheckAvailableImgRequest) returns (CheckAvailableImgResponse) {}
+  rpc CheckAvailableimage(CheckAvailableimageRequest) returns (CheckAvailableimageResponse) {}
   rpc GetMintPermit(GetMintPermitRequest) returns (GetMintPermitResponse) {}
   rpc ListPaidInscriptionOrders(ListPaidInscriptionOrdersRequest) returns (ListPaidInscriptionOrdersResponse) {}
 
@@ -96,7 +96,7 @@ message GetCollectionRequest {
 }
 
 // just for Custom collection
-message ListImgIdsRequest {
+message ListNftIdsRequest {
   enum Type {
     TYPE_UNSPECIFIED = 0;
     AVAILABLE = 1;
@@ -108,12 +108,14 @@ message ListImgIdsRequest {
   Type type = 4;
 }
 
-message ListImgIdsResponse {
-  repeated string ids = 1;
-  int32  total = 2;
-
+message ListNftIdsResponse {
+  message NftId {
+    string token_id = 1;
+    string image_id = 2;
+  }
+  repeated NftId nft_ids = 1;
+  int32 total = 2;
 }
-
 
 message ListRepoTagsRequest {
   string collection_id = 1;
@@ -219,7 +221,7 @@ message CreateInscriptionOrderRequest {
   repeated NftAttribute attributes = 4;
   InscriptionType order_type = 5;
   // sig or token id
-  string img_id = 6;
+  string image_id = 6;
 }
 
 message CreateInscriptionOrderResponse {
@@ -272,12 +274,12 @@ message RecommendedFeeResponse {
   uint64 economy_fee = 4;
 }
 
-message CheckAvailableImgRequest {
+message CheckAvailableimageRequest {
   string collection_id = 1;
-  string img_id = 2;
+  string image_id = 2;
 }
 
-message CheckAvailableImgResponse {
+message CheckAvailableimageResponse {
   bool available = 1;
 }
 
@@ -295,7 +297,7 @@ message ListFeeDetailsEventsResponse {
 message GetMintPermitRequest {
   string collection_id = 1;
   string release_id = 2;
-  string img_id = 3;
+  string image_id = 3;
 }
 
 message GetMintPermitResponse {
