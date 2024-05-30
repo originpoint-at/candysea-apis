@@ -85,9 +85,6 @@ message CreateCollectionRequest {
   string name = 1;
   string display_name = 2;
   string description = 3;
-  string github_repo_uri = 4;
-  string github_access_token = 5;
-  Collection.Type type = 6;
 }
 
 message GetCollectionRequest {
