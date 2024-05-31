@@ -334,7 +334,6 @@ message RefreshTokenResponse {
 message ListUnboundContractsRequest{
   int32 limit = 1;
   int32 offset = 2;
-  string chain = 3;
 }
 
 message ListUnboundContractsResponse{
