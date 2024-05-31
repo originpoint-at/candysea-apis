@@ -27,7 +27,7 @@ service CandyMintService {
   rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
-  rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
+  rpc BindCollectionOnChainData(BindCollectionOnChainDataRequest) returns (Collection) {}
   rpc TogglePauseCollection(TogglePauseCollectionRequest) returns (google.protobuf.Empty) {}
   rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
   rpc PublishRelease(PublishReleaseRequest) returns (google.protobuf.Empty) {}
@@ -146,14 +146,9 @@ message UpdateCollectionRequest {
   string mint_fee_recipient = 9;
 }
 
-message SyncCollectionOnChainDataRequest {
+message BindCollectionOnChainDataRequest {
   string collection_id = 1;
-  string nft_name = 2;
-  string nft_symbol = 3;
-  string contract_address = 4;
-  int64 single_price = 5;
-  int64 max_supply = 6;
-  string transaction_hash = 7;
+  string nft_contract_id = 2;
 }
 
 message TogglePauseCollectionRequest {
@@ -341,12 +336,6 @@ message  ListContractsRequest{
 }
 
 message  ListContractsResponse{
-  message NftContract{
-    string contract = 1;
-    string name = 2;
-    string symbol = 3;
-    string tx_hash = 4;
-  }
   repeated NftContract contracts = 1;
   int32 total = 2;
 }

@@ -28,3 +28,11 @@ message NftAttribute {
   string trait_type = 1;
   string value = 2;
 }
+
+message NftContract{
+  string id = 1;
+  string contract = 2;
+  string name = 3;
+  string symbol = 4;
+  string tx_hash = 5;
+}
