@@ -48,7 +48,7 @@ service CandyMintService {
 
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest) returns (ListFeeDetailsEventsResponse) {}
   rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest) returns (ListFeeWithdrawnEventsResponse) {}
-  rpc ListUnboundContracts(ListUnboundContractsRequest)returns(ListUnboundContractsResponse) {}
+  rpc ListContracts(ListContractsRequest)returns(ListContractsResponse) {}
 }
 
 message ListPublicCollectionsRequest {
@@ -330,13 +330,17 @@ message RefreshTokenResponse {
   string access_token = 1;
 }
 
-
-message ListUnboundContractsRequest{
+message  ListContractsRequest{
+  enum Type {
+    UNSPECIFIED = 0;
+    UNBOUND = 1;
+  }
   int32 limit = 1;
   int32 offset = 2;
+  Type type = 3;
 }
 
-message ListUnboundContractsResponse{
+message  ListContractsResponse{
   message NftContract{
     string contract = 1;
     string name = 2;
