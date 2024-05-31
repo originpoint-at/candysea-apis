@@ -30,9 +30,9 @@ message Collection {
   // readonly
   string contract_address = 10;
   // readonly
-  int64 price = 11;
+  string price = 11;
   // readonly
-  int32 max_supply_count = 12;
+  int32 max_supply = 12;
   int32 total_supply = 22;
   Release active_release = 13;
   Release next_release = 14;
