@@ -48,7 +48,6 @@ service CandyMintService {
 
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest) returns (ListFeeDetailsEventsResponse) {}
   rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest) returns (ListFeeWithdrawnEventsResponse) {}
-  rpc GetFeeMetrics(GetFeeMetricsRequest) returns (GetFeeMetricsResponse) {}
 }
 
 message ListPublicCollectionsRequest {
@@ -313,15 +312,6 @@ message ListFeeWithdrawnEventsRequest {
 message ListFeeWithdrawnEventsResponse {
   repeated FeeWithdrawEvent feeWithdrawnEvents = 1;
   int64 total = 2;
-}
-
-message GetFeeMetricsRequest {
-  string collection_id = 1;
-}
-
-message GetFeeMetricsResponse {
-  int64 total_fee = 1;
-  int64 total_withdrawn_fee = 2;
 }
 
 message ListPaidInscriptionOrdersRequest {
