@@ -48,6 +48,7 @@ service CandyMintService {
 
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest) returns (ListFeeDetailsEventsResponse) {}
   rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest) returns (ListFeeWithdrawnEventsResponse) {}
+  rpc ListUnboundContracts(ListUnboundContractsRequest)returns(ListUnboundContractsResponse) {}
 }
 
 message ListPublicCollectionsRequest {
@@ -327,4 +328,22 @@ message ListPaidInscriptionOrdersResponse {
 
 message RefreshTokenResponse {
   string access_token = 1;
+}
+
+
+message ListUnboundContractsRequest{
+  int32 limit = 1;
+  int32 offset = 2;
+  string chain = 3;
+}
+
+message ListUnboundContractsResponse{
+  message NftContract{
+    string contract = 1;
+    string name = 2;
+    string symbol = 3;
+    string tx_hash = 4;
+  }
+  repeated NftContract contracts = 1;
+  int32 total = 2;
 }
