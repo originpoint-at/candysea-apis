@@ -20,11 +20,20 @@ message Nft {
   string collection_cover_uri = 8;
   string collection_author = 9;
   string collection_contract_address = 10;
-  int64 mint_price = 11;
+  string mint_price = 11;
   google.protobuf.Timestamp mint_time = 12;
 }
 
 message NftAttribute {
   string trait_type = 1;
   string value = 2;
+}
+
+message NftContract{
+  string address = 1;
+  string name = 2;
+  string symbol = 3;
+  string transaction_hash = 4;
+  string price = 5;
+  string max_supply = 6;
 }

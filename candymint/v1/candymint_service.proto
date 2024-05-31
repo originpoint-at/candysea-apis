@@ -27,7 +27,7 @@ service CandyMintService {
   rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
-  rpc SyncCollectionOnChainData(SyncCollectionOnChainDataRequest) returns (Collection) {}
+  rpc BindCollectionOnChainData(BindCollectionOnChainDataRequest) returns (Collection) {}
   rpc TogglePauseCollection(TogglePauseCollectionRequest) returns (google.protobuf.Empty) {}
   rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
   rpc PublishRelease(PublishReleaseRequest) returns (google.protobuf.Empty) {}
@@ -48,7 +48,7 @@ service CandyMintService {
 
   rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest) returns (ListFeeDetailsEventsResponse) {}
   rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest) returns (ListFeeWithdrawnEventsResponse) {}
-  rpc GetFeeMetrics(GetFeeMetricsRequest) returns (GetFeeMetricsResponse) {}
+  rpc ListContracts(ListContractsRequest)returns(ListContractsResponse) {}
 }
 
 message ListPublicCollectionsRequest {
@@ -146,14 +146,9 @@ message UpdateCollectionRequest {
   string mint_fee_recipient = 9;
 }
 
-message SyncCollectionOnChainDataRequest {
+message BindCollectionOnChainDataRequest {
   string collection_id = 1;
-  string nft_name = 2;
-  string nft_symbol = 3;
-  string contract_address = 4;
-  int64 single_price = 5;
-  int64 max_supply = 6;
-  string transaction_hash = 7;
+  string nft_contract_address = 2;
 }
 
 message TogglePauseCollectionRequest {
@@ -315,15 +310,6 @@ message ListFeeWithdrawnEventsResponse {
   int64 total = 2;
 }
 
-message GetFeeMetricsRequest {
-  string collection_id = 1;
-}
-
-message GetFeeMetricsResponse {
-  int64 total_fee = 1;
-  int64 total_withdrawn_fee = 2;
-}
-
 message ListPaidInscriptionOrdersRequest {
   int32 limit = 1;
   int32 offset = 2;
@@ -337,4 +323,19 @@ message ListPaidInscriptionOrdersResponse {
 
 message RefreshTokenResponse {
   string access_token = 1;
+}
+
+message  ListContractsRequest{
+  enum Type {
+    UNSPECIFIED = 0;
+    UNBOUND = 1;
+  }
+  int32 limit = 1;
+  int32 offset = 2;
+  Type type = 3;
+}
+
+message  ListContractsResponse{
+  repeated NftContract contracts = 1;
+  int32 total = 2;
 }
