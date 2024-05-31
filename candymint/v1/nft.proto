@@ -30,9 +30,8 @@ message NftAttribute {
 }
 
 message NftContract{
-  string id = 1;
-  string address = 2;
-  string name = 3;
-  string symbol = 4;
-  string transaction_hash = 5;
+  string address = 1;
+  string name = 2;
+  string symbol = 3;
+  string transaction_hash = 4;
 }

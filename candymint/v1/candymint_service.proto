@@ -148,7 +148,7 @@ message UpdateCollectionRequest {
 
 message BindCollectionOnChainDataRequest {
   string collection_id = 1;
-  string nft_contract_id = 2;
+  string nft_contract_address = 2;
 }
 
 message TogglePauseCollectionRequest {
