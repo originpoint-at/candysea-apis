@@ -12,8 +12,9 @@ message Release {
   enum Status {
     STATUS_UNSPECIFIED = 0;
     PROCESSING = 1;
-    PROCESS_SUCCEEDED = 2;
-    PROCESS_FAILED = 3;
+    PARSING = 2;
+    PROCESS_SUCCEEDED = 3;
+    PROCESS_FAILED = 4;
   }
   string id = 1;
   string version = 2;
