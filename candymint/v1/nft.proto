@@ -33,7 +33,6 @@ message NftContract{
   string address = 1;
   string name = 2;
   string symbol = 3;
-  string transaction_hash = 4;
-  string price = 5;
-  string max_supply = 6;
+  string price = 4;
+  string max_supply = 5;
 }

@@ -18,23 +18,29 @@ option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
 service CandyMintService {
-  rpc ListPublicCollections(ListPublicCollectionsRequest) returns (ListPublicCollectionsResponse) {}
   rpc LoginWithWallet(LoginWithWalletRequest) returns (LoginWithWalletResponse) {}
   rpc RefreshToken(google.protobuf.Empty) returns (RefreshTokenResponse) {}
+  rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
+
   rpc CreateCollection(CreateCollectionRequest) returns (Collection) {}
   rpc GetCollection(GetCollectionRequest) returns (Collection) {}
-  rpc ListNftIds(ListNftIdsRequest) returns (ListNftIdsResponse) {}
-  rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
+  rpc ListPublicCollections(ListPublicCollectionsRequest) returns (ListPublicCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {}
-  rpc BindCollectionOnChainData(BindCollectionOnChainDataRequest) returns (Collection) {}
   rpc TogglePauseCollection(TogglePauseCollectionRequest) returns (google.protobuf.Empty) {}
   rpc CreateRelease(CreateReleaseRequest) returns (Release) {}
   rpc PublishRelease(PublishReleaseRequest) returns (google.protobuf.Empty) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc GetRelease(GetReleaseRequest) returns (Release) {}
+  rpc BindCollectionOnChainData(BindCollectionOnChainDataRequest) returns (Collection) {}
+  rpc GetMintPermit(GetMintPermitRequest) returns (GetMintPermitResponse) {}
+
+  rpc ListNftIds(ListNftIdsRequest) returns (ListNftIdsResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (Nft) {}
+  rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest) returns (ListFeeDetailsEventsResponse) {}
+  rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest) returns (ListFeeWithdrawnEventsResponse) {}
+  rpc ListContracts(ListContractsRequest)returns(ListContractsResponse) {}
 
   rpc CreateInscriptionOrder(CreateInscriptionOrderRequest) returns (InscriptionOrder) {}
   rpc GetInscriptionOrder(GetInscriptionOrderRequest) returns (InscriptionOrder) {}
@@ -42,13 +48,9 @@ service CandyMintService {
   rpc ListInscriptions(ListInscriptionsRequest) returns (ListInscriptionsResponse) {}
   rpc ListUnspentUtxos(ListUnspentUtxosRequest) returns (ListUnspentUtxosResponse) {}
   rpc GetFeeRate(google.protobuf.Empty) returns (RecommendedFeeResponse) {}
-  rpc CheckAvailableimage(CheckAvailableimageRequest) returns (CheckAvailableimageResponse) {}
-  rpc GetMintPermit(GetMintPermitRequest) returns (GetMintPermitResponse) {}
+  rpc CheckAvailableImage(CheckAvailableImageRequest) returns (CheckAvailableImageResponse) {}
   rpc ListPaidInscriptionOrders(ListPaidInscriptionOrdersRequest) returns (ListPaidInscriptionOrdersResponse) {}
 
-  rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest) returns (ListFeeDetailsEventsResponse) {}
-  rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest) returns (ListFeeWithdrawnEventsResponse) {}
-  rpc ListContracts(ListContractsRequest)returns(ListContractsResponse) {}
 }
 
 message ListPublicCollectionsRequest {
@@ -73,6 +75,10 @@ message LoginWithWalletRequest {
   string message = 3;
   google.protobuf.Timestamp timestamp = 4;
   string chain_id = 5;
+}
+
+message RefreshTokenResponse {
+  string access_token = 1;
 }
 
 message LoginWithWalletResponse {
@@ -142,8 +148,6 @@ message UpdateCollectionRequest {
   string github_repo_uri = 5;
   string github_access_token = 6;
   Collection.Type type = 7;
-  string contract_tx_hash = 8;
-  string mint_fee_recipient = 9;
 }
 
 message BindCollectionOnChainDataRequest {
@@ -206,6 +210,67 @@ message GetNFTRequest {
   string chain_id = 4;
 }
 
+message ListFeeDetailsEventsRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+  string collection_id = 3;
+}
+
+message ListFeeDetailsEventsResponse {
+  repeated FeeDetailsEvent feeDetailsEvents = 1;
+  int64 total = 2;
+}
+
+message GetMintPermitRequest {
+  string collection_id = 1;
+  string release_id = 2;
+  string image_id = 3;
+}
+
+message GetMintPermitResponse {
+  string signature = 1;
+  string base64_payload = 2;
+  string traits = 3;
+  int64 timestamp = 4;
+}
+
+message ListFeeWithdrawnEventsRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+  string collection_id = 3;
+}
+
+message ListFeeWithdrawnEventsResponse {
+  repeated FeeWithdrawEvent feeWithdrawnEvents = 1;
+  int64 total = 2;
+}
+
+message  ListContractsRequest{
+  enum Type {
+    UNSPECIFIED = 0;
+    UNBOUND = 1;
+  }
+  int32 limit = 1;
+  int32 offset = 2;
+  Type type = 3;
+}
+
+message  ListContractsResponse{
+  repeated NftContract contracts = 1;
+  int32 total = 2;
+}
+
+message ListPaidInscriptionOrdersRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+  string collection_id = 3;
+}
+
+message ListPaidInscriptionOrdersResponse {
+  repeated InscriptionOrder orders = 1;
+  int32 total = 2;
+}
+
 message CreateInscriptionOrderRequest {
   string receiver = 1;
   string base64_payload = 2;
@@ -266,76 +331,13 @@ message RecommendedFeeResponse {
   uint64 economy_fee = 4;
 }
 
-message CheckAvailableimageRequest {
+message CheckAvailableImageRequest {
   string collection_id = 1;
   string image_id = 2;
 }
 
-message CheckAvailableimageResponse {
+message CheckAvailableImageResponse {
   bool available = 1;
 }
 
-message ListFeeDetailsEventsRequest {
-  int32 limit = 1;
-  int32 offset = 2;
-  string collection_id = 3;
-}
 
-message ListFeeDetailsEventsResponse {
-  repeated FeeDetailsEvent feeDetailsEvents = 1;
-  int64 total = 2;
-}
-
-message GetMintPermitRequest {
-  string collection_id = 1;
-  string release_id = 2;
-  string image_id = 3;
-}
-
-message GetMintPermitResponse {
-  string signature = 1;
-  string base64_payload = 2;
-  string traits = 3;
-  int64 timestamp = 4;
-}
-
-message ListFeeWithdrawnEventsRequest {
-  int32 limit = 1;
-  int32 offset = 2;
-  string collection_id = 3;
-}
-
-message ListFeeWithdrawnEventsResponse {
-  repeated FeeWithdrawEvent feeWithdrawnEvents = 1;
-  int64 total = 2;
-}
-
-message ListPaidInscriptionOrdersRequest {
-  int32 limit = 1;
-  int32 offset = 2;
-  string collection_id = 3;
-}
-
-message ListPaidInscriptionOrdersResponse {
-  repeated InscriptionOrder orders = 1;
-  int32 total = 2;
-}
-
-message RefreshTokenResponse {
-  string access_token = 1;
-}
-
-message  ListContractsRequest{
-  enum Type {
-    UNSPECIFIED = 0;
-    UNBOUND = 1;
-  }
-  int32 limit = 1;
-  int32 offset = 2;
-  Type type = 3;
-}
-
-message  ListContractsResponse{
-  repeated NftContract contracts = 1;
-  int32 total = 2;
-}
