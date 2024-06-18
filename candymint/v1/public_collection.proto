@@ -28,6 +28,7 @@ message PublicCollection {
   int32 total_supply = 14;
   Release latest_release = 11;
   google.protobuf.Timestamp create_time = 12;
+  string contract_address = 15;
 
   reserved 13;
   reserved "update_time";

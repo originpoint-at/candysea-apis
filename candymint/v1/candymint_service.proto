@@ -62,6 +62,7 @@ message ListPublicCollectionsRequest {
   int32 limit = 2;
   int32 offset = 3;
   string chain_id = 4;
+  string keyword = 5;
 }
 
 message ListPublicCollectionsResponse {
