@@ -163,7 +163,7 @@ message TogglePauseCollectionRequest {
 
 message CreateReleaseRequest {
   string collection_id = 1;
-  string tag = 2;
+  string githubRef = 2;
 }
 
 message PublishReleaseRequest {
@@ -225,6 +225,9 @@ message GetMintPermitRequest {
   string collection_id = 1;
   string release_id = 2;
   string image_id = 3;
+  string image_hash = 4;
+  // traits must be sorted by trait_type , display_type , value before computing hash
+  string traits_hash = 5;
 }
 
 message GetMintPermitResponse {
