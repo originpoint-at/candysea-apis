@@ -226,7 +226,7 @@ message GetMintPermitRequest {
   string release_id = 2;
   string image_id = 3;
   string image_hash = 4;
-  // traits must be sorted by trait_type , display_type , value before computing json hash
+  // traits must be sorted by trait_type , display_type , value before computing hash
   string traits_hash = 5;
 }
 
