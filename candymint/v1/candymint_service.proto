@@ -163,7 +163,7 @@ message TogglePauseCollectionRequest {
 
 message CreateReleaseRequest {
   string collection_id = 1;
-  string tag = 2;
+  string githubRef = 2;
 }
 
 message PublishReleaseRequest {
