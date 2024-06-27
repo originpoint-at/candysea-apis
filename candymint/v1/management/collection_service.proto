@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1.management;
+
+import "candymint/v1/message/collection.proto";
+import "candymint/v1/message/nft.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/management";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1.management";
+
+// auth required
+service CollectionService{
+  rpc CreateCollection(CreateCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
+  rpc GetCollection(GetCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
+  rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
+  rpc UpdateCollection(UpdateCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
+  rpc TogglePauseCollection(TogglePauseCollectionRequest) returns (google.protobuf.Empty) {}
+
+  rpc ListContracts(ListContractsRequest)returns(ListContractsResponse) {}
+  rpc BindContractToCollection(BindContractToCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
+}
+
+message CreateCollectionRequest {
+  // unique name of the collection, will be used in the url
+  string name = 1;
+  string display_name = 2;
+  string description = 3;
+}
+
+message GetCollectionRequest {
+  string collection_name = 1;
+  string chain_id = 2;
+}
+
+
+message ListCollectionsRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+  string chain_id = 3;
+}
+
+message ListCollectionsResponse {
+  repeated io.candysea.candymint.v1.message.Collection collections = 1;
+  int32 total = 2;
+}
+
+message TogglePauseCollectionRequest {
+  string collection_id = 1;
+  bool is_pause = 2;
+  string pause_announcement = 3;
+}
+
+
+message UpdateCollectionRequest {
+  string collection_id = 1;
+  string display_name = 2;
+  string description = 3;
+  string cover_file_id = 4;
+  string github_repo_uri = 5;
+  string github_access_token = 6;
+}
+
+message  ListContractsRequest{
+  enum Type {
+    UNSPECIFIED = 0;
+    UNBOUND = 1;
+  }
+  int32 limit = 1;
+  int32 offset = 2;
+  Type type = 3;
+}
+
+message  ListContractsResponse{
+  repeated io.candysea.candymint.v1.message.NftContract contracts = 1;
+  int32 total = 2;
+}
+
+message BindContractToCollectionRequest {
+  string collection_id = 1;
+  string nft_contract_address = 2;
+}
