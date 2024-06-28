@@ -13,9 +13,9 @@ option java_package = "io.candysea.candymint.v1";
 message Collection {
   enum Type {
     TYPE_UNSPECIFIED = 0;
-    CUSTOM = 1;
-    SYNTHETIC_PNG = 2;
-    SYNTHETIC_SVG = 3;
+    DEFAULT = 1;
+    PNG_COMPOSITE = 2;
+    SVG_COMPOSITE = 3;
   }
   string id = 1;
   // readonly, generated from display_name
