@@ -11,8 +11,7 @@ option java_package = "io.candysea.candymint.v1";
 
 service AuthService{
   rpc LoginWithWallet(LoginWithWalletRequest) returns (LoginWithWalletResponse) {}
-  // auth required
-  rpc RefreshToken(google.protobuf.Empty) returns (RefreshTokenResponse) {}
+  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {}
 }
 
 message LoginWithWalletRequest {
@@ -21,6 +20,10 @@ message LoginWithWalletRequest {
   string message = 3;
   google.protobuf.Timestamp timestamp = 4;
   string chain_id = 5;
+}
+
+message RefreshTokenRequest {
+  string refresh_token = 1;
 }
 
 message RefreshTokenResponse {
