@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1;
+
+import "candymint/v1/message/collection.proto";
+import "candymint/v1/message/events.proto";
+import "candymint/v1/message/inscription.proto";
+import "candymint/v1/message/nft.proto";
+import "candymint/v1/message/release.proto";
+import "candymint/v1/message/utxo.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1";
+
+
+service NftService{
+  rpc ListNftIds(ListNftIdsRequest) returns (ListNftIdsResponse) {}
+  rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
+  rpc GetNFT(GetNFTRequest) returns (io.candysea.candymint.v1.message.Nft) {}
+  rpc GetMintPermit(GetMintPermitRequest) returns (GetMintPermitResponse) {}
+}
+
+// just for Custom collection
+message ListNftIdsRequest {
+  enum Type {
+    TYPE_UNSPECIFIED = 0;
+    AVAILABLE = 1;
+    MINTED = 2;
+  }
+  string collection_id = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+  Type type = 4;
+}
+
+message ListNftIdsResponse {
+  message NftId {
+    string token_id = 1;
+    string image_id = 2;
+  }
+  repeated NftId nft_ids = 1;
+  int32 total = 2;
+}
+
+
+message ListNFTsRequest {
+  string collection_name = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+  string chain_id = 4;
+  string address = 5;
+}
+
+message ListNFTsResponse {
+  repeated io.candysea.candymint.v1.message.Nft nfts = 1;
+  int32 total = 2;
+}
+
+message GetNFTRequest {
+  string collection_id = 1;
+  string collection_name = 2;
+  string token_id = 3;
+  string chain_id = 4;
+}
+
+
+
+message GetMintPermitRequest {
+  string collection_id = 1;
+  string release_id = 2;
+  string image_id = 3;
+  string image_hash = 4;
+  // traits must be sorted by trait_type , display_type , value before computing hash
+  string traits_hash = 5;
+}
+
+message GetMintPermitResponse {
+  string signature = 1;
+  string base64_payload = 2;
+  string traits = 3;
+  int64 timestamp = 4;
+}

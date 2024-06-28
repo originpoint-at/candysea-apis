@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1.management;
+
+import "candymint/v1/message/release.proto";
+import "candymint/v1/message/repo_tag.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/management";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1.management";
+
+// auth required
+service ReleaseService{
+  rpc CreateRelease(CreateReleaseRequest) returns (io.candysea.candymint.v1.message.Release) {}
+  rpc PublishRelease(PublishReleaseRequest) returns (google.protobuf.Empty) {}
+  rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
+  rpc GetRelease(GetReleaseRequest) returns (io.candysea.candymint.v1.message.Release) {}
+  rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
+}
+
+message CreateReleaseRequest {
+  string collection_id = 1;
+  string githubRef = 2;
+}
+
+message PublishReleaseRequest {
+  string release_id = 1;
+  string announcement = 2;
+  google.protobuf.Timestamp publish_time = 3;
+}
+
+message ListReleasesRequest {
+  string collection_id = 1;
+  string collection_name = 2;
+  string chain_id = 3;
+  int32 limit = 4;
+  int32 offset = 5;
+  io.candysea.candymint.v1.message.Release.Status status = 6;
+}
+
+message GetReleaseRequest {
+  string release_id = 1;
+}
+
+message ListReleasesResponse {
+  repeated io.candysea.candymint.v1.message.Release releases = 1;
+  int32 total = 2;
+}
+
+
+message ListRepoTagsRequest {
+  string collection_id = 1;
+  string collection_name = 2;
+}
+
+message ListRepoTagsResponse {
+  repeated io.candysea.candymint.v1.message.RepoTag tags = 1;
+}

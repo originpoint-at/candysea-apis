@@ -1,13 +1,13 @@
 syntax = "proto3";
 
-package io.candysea.candymint.v1;
+package io.candysea.candymint.v1.message;
 
-import "candymint/v1/release.proto";
+import "candymint/v1/message/release.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/message";
 option java_multiple_files = true;
-option java_package = "io.candysea.candymint.v1";
+option java_package = "io.candysea.candymint.v1.message";
 
 message FeeDetailsEvent {
   string token_id = 1;
