@@ -11,11 +11,15 @@ option java_package = "io.candysea.candymint.v1.management";
 
 // auth required
 service GithubService{
-  rpc ListRepositories(google.protobuf.Empty) returns (ListRepositoriesResponse) {}
+  rpc ListRepositories(ListRepositoriesRequest) returns (ListRepositoriesResponse) {}
   rpc GetAuthStatus(google.protobuf.Empty) returns (io.candysea.candymint.v1.message.AuthStatus){}
   rpc GetAppStatus(google.protobuf.Empty) returns (io.candysea.candymint.v1.message.AppStatus){}
 }
 
+message ListRepositoriesRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+}
 
 message ListRepositoriesResponse {
   repeated io.candysea.candymint.v1.message.Repository repositories = 1;
