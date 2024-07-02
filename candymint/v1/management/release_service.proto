@@ -16,7 +16,6 @@ service ReleaseService{
   rpc PublishRelease(PublishReleaseRequest) returns (google.protobuf.Empty) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
   rpc GetRelease(GetReleaseRequest) returns (io.candysea.candymint.v1.message.Release) {}
-  rpc ListRepoTags(ListRepoTagsRequest) returns (ListRepoTagsResponse) {}
 }
 
 message CreateReleaseRequest {
@@ -46,14 +45,4 @@ message GetReleaseRequest {
 message ListReleasesResponse {
   repeated io.candysea.candymint.v1.message.Release releases = 1;
   int32 total = 2;
-}
-
-
-message ListRepoTagsRequest {
-  string collection_id = 1;
-  string collection_name = 2;
-}
-
-message ListRepoTagsResponse {
-  repeated io.candysea.candymint.v1.message.RepoTag tags = 1;
 }

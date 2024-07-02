@@ -4,7 +4,6 @@ package io.candysea.candymint.v1.management;
 
 import "candymint/v1/message/github.proto";
 import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/management";
 option java_multiple_files = true;
