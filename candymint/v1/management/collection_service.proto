@@ -14,13 +14,14 @@ option java_package = "io.candysea.candymint.v1.management";
 // auth required
 service CollectionService{
   rpc CreateCollection(CreateCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
-  rpc GetCollection(GetCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
-  rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
   rpc TogglePauseCollection(TogglePauseCollectionRequest) returns (google.protobuf.Empty) {}
 
+  rpc GetCollection(GetCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
+  rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
+
   rpc ListContracts(ListContractsRequest)returns(ListContractsResponse) {}
-  rpc BindContractToCollection(BindContractToCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
+  rpc BindContract(BindContractRequest) returns (io.candysea.candymint.v1.message.Collection) {}
 }
 
 message CreateCollectionRequest {
@@ -59,8 +60,7 @@ message UpdateCollectionRequest {
   string display_name = 2;
   string description = 3;
   string cover_file_id = 4;
-  string github_repo_uri = 5;
-  string github_access_token = 6;
+  string github_repository_uri = 5;
 }
 
 message  ListContractsRequest{
@@ -78,7 +78,7 @@ message  ListContractsResponse{
   int32 total = 2;
 }
 
-message BindContractToCollectionRequest {
+message BindContractRequest {
   string collection_id = 1;
   string nft_contract_address = 2;
 }
