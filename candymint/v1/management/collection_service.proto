@@ -60,7 +60,7 @@ message UpdateCollectionRequest {
   string display_name = 2;
   string description = 3;
   string cover_file_id = 4;
-  string github_repo_uri = 5;
+  string github_repository_uri = 5;
 }
 
 message  ListContractsRequest{
