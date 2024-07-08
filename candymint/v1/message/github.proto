@@ -14,26 +14,4 @@ message RepositoryTag {
   google.protobuf.Timestamp create_time = 3;
 }
 
-message Repository{
-  string url = 1;
-}
-
-message AuthStatus {
-  enum OAuth2Status {
-    UNAUTHORIZED = 0;
-    VALID = 1;
-    EXPIRED = 2;
-  }
-  OAuth2Status oAuth2Status = 1 ;
-}
-
-message AppStatus{
-  enum GithubAppStatus{
-    NOT_INSTALLED = 0;
-    INSTALLED = 1;
-    SUSPEND = 2;
-  }
-  GithubAppStatus githubAppStatus = 1;
-}
-
 
