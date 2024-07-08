@@ -8,7 +8,7 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/messag
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1.message";
 
-message RepoTag {
+message RepositoryTag {
   string tag = 1;
   string commit_hash = 2;
   google.protobuf.Timestamp create_time = 3;
