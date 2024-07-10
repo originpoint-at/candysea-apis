@@ -9,7 +9,7 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/messag
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1.message";
 
-// next_id: 23
+// next_id: 25
 message Collection {
   enum Type {
     TYPE_UNSPECIFIED = 0;
@@ -33,8 +33,10 @@ message Collection {
   // readonly
   string price = 11;
   // readonly
-  int32 max_supply = 12;
-  int32 total_supply = 22;
+  int64 max_supply = 12;
+  int64 total_supply = 22;
+  int64 score = 23;
+  int64 stop = 24;
   Release active_release = 13;
   Release next_release = 14;
   // only for author
