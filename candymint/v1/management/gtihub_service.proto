@@ -4,6 +4,8 @@ package io.candysea.candymint.v1.management;
 
 import "candymint/v1/message/github.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/management";
 option java_multiple_files = true;
@@ -12,15 +14,37 @@ option java_package = "io.candysea.candymint.v1.management";
 // auth required
 service GithubService{
   rpc ListRepositoryTags(ListRepositoryTagsRequest) returns (ListRepositoryTagsResponse) {}
+  rpc ListCommitStatues(ListCommitStatuesRequest) returns(ListCommitStatuesResponse){}
 }
 
-
 message ListRepositoryTagsRequest {
-  string collectionId = 1;
-  string collectionName = 2;
+  string collection_id = 1;
+  string collection_name = 2;
 }
 
 message ListRepositoryTagsResponse{
   repeated io.candysea.candymint.v1.message.RepositoryTag tags = 1;
 }
 
+message ListCommitStatuesRequest {
+  int64 per_page = 1;
+  int64 page = 2;
+  string respository_ref = 3;
+  string collection_id = 4;
+}
+
+message CommitStatus{
+  int64 id = 1;
+  string  avatar_url = 2 ;
+  string  context = 3 ;
+  google.protobuf.Timestamp  created_at = 4 ;
+  google.protobuf.Timestamp  updated_at = 5 ;
+  string  description = 6 ;
+  string  state = 7;
+  string  target_url = 8 ;
+  string  url = 9;
+}
+
+message ListCommitStatuesResponse {
+  repeated  CommitStatus commit_statuses = 1;
+}
