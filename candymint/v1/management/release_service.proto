@@ -11,7 +11,7 @@ option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1.management";
 
 // auth required
-service ReleaseService{
+service ReleaseService {
   rpc CreateRelease(CreateReleaseRequest) returns (io.candysea.candymint.v1.message.Release) {}
   rpc PublishRelease(PublishReleaseRequest) returns (google.protobuf.Empty) {}
   rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
@@ -21,6 +21,7 @@ service ReleaseService{
 message CreateReleaseRequest {
   string collection_id = 1;
   string githubRef = 2;
+  bool skip_check_template = 3;
 }
 
 message PublishReleaseRequest {
