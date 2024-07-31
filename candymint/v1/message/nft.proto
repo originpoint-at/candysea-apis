@@ -29,10 +29,12 @@ message NftAttribute {
   string value = 2;
 }
 
-message NftContract{
+message NftContract {
   string address = 1;
   string name = 2;
   string symbol = 3;
   string price = 4;
   string max_supply = 5;
+  string tx_hash = 6;
+  google.protobuf.Timestamp block_time = 7;
 }
