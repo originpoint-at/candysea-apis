@@ -18,6 +18,7 @@ service CollectionService {
   rpc TogglePauseCollection(TogglePauseCollectionRequest) returns (google.protobuf.Empty) {}
 
   rpc GetCollection(GetCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
+  rpc GetCollectionCapabilities(GetCollectionCapabilitiesRequest) returns (GetCollectionCapabilitiesResponse) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
 
   rpc ListContracts(ListContractsRequest) returns (ListContractsResponse) {}
@@ -34,6 +35,14 @@ message CreateCollectionRequest {
 message GetCollectionRequest {
   string collection_name = 1;
   string chain_id = 2;
+}
+
+message GetCollectionCapabilitiesRequest {
+  string collection_id = 1;
+}
+
+message GetCollectionCapabilitiesResponse {
+  bool on_chain_selectable = 1;
 }
 
 message ListCollectionsRequest {
