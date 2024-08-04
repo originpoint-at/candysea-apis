@@ -26,5 +26,5 @@ message Release {
   google.protobuf.Timestamp publish_time = 8;
   string announcement = 9;
   string build_message = 10;
-  int32 max_file_limit = 11;
+  int32 max_file_size = 11;
 }
