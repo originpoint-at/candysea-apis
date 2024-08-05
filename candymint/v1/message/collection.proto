@@ -47,4 +47,5 @@ message Collection {
   string mint_fee_recipient = 19;
   bool is_paused = 20;
   string pause_announcement = 21;
+  bool on_chain_storage = 25;
 }
