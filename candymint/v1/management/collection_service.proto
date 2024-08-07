@@ -22,7 +22,6 @@ service CollectionService {
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
 
   rpc ListContracts(ListContractsRequest) returns (ListContractsResponse) {}
-  rpc BindContract(BindContractRequest) returns (io.candysea.candymint.v1.message.Collection) {}
 }
 
 message CreateCollectionRequest {
@@ -89,9 +88,4 @@ message ListContractsRequest {
 message ListContractsResponse {
   repeated io.candysea.candymint.v1.message.NftContract contracts = 1;
   int32 total = 2;
-}
-
-message BindContractRequest {
-  string collection_id = 1;
-  string nft_contract_address = 2;
 }
