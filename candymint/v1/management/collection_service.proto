@@ -22,6 +22,8 @@ service CollectionService {
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
 
   rpc ListContracts(ListContractsRequest) returns (ListContractsResponse) {}
+
+  rpc GetCollectionMetadata(GetCollectionMetadataRequest) returns (CollectionMetadata) {}
 }
 
 message CreateCollectionRequest {
@@ -88,4 +90,13 @@ message ListContractsRequest {
 message ListContractsResponse {
   repeated io.candysea.candymint.v1.message.NftContract contracts = 1;
   int32 total = 2;
+}
+
+message GetCollectionMetadataRequest {
+  string collection_id = 1;
+}
+
+message CollectionMetadata {
+  string metadata_uri = 1;
+  string image_uri = 2;
 }
