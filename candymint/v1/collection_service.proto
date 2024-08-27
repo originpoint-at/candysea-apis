@@ -3,7 +3,7 @@ syntax = "proto3";
 package io.candysea.candymint.v1;
 
 import "candymint/v1/message/collection.proto";
-import "candymint/v1/message/events.proto";
+import "candymint/v1/message/details.proto";
 import "google/protobuf/empty.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
@@ -14,8 +14,8 @@ option java_package = "io.candysea.candymint.v1";
 service CollectionService {
   rpc GetCollection(GetCollectionRequest) returns (io.candysea.candymint.v1.message.Collection) {}
   rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {}
-  rpc ListFeeDetailsEvents(ListFeeDetailsEventsRequest) returns (ListFeeDetailsEventsResponse) {}
-  rpc ListFeeWithdrawnEvents(ListFeeWithdrawnEventsRequest) returns (ListFeeWithdrawnEventsResponse) {}
+  rpc ListMintDetails(ListMintDetailsRequest) returns (ListMntDetailsResponse) {}
+  rpc ListFeeWithdrawn(ListFeeWithdrawnDetailsRequest) returns (ListFeeWithdrawnDetailsResponse) {}
 }
 
 message GetCollectionRequest {
@@ -40,24 +40,24 @@ message ListCollectionsResponse {
   int32 total = 2;
 }
 
-message ListFeeDetailsEventsRequest {
+message ListMintDetailsRequest {
   int32 limit = 1;
   int32 offset = 2;
   string collection_id = 3;
 }
 
-message ListFeeDetailsEventsResponse {
-  repeated io.candysea.candymint.v1.message.FeeDetailsEvent feeDetailsEvents = 1;
+message ListMntDetailsResponse {
+  repeated io.candysea.candymint.v1.message.MintDetail mintDetails = 1;
   int64 total = 2;
 }
 
-message ListFeeWithdrawnEventsRequest {
+message ListFeeWithdrawnDetailsRequest {
   int32 limit = 1;
   int32 offset = 2;
   string collection_id = 3;
 }
 
-message ListFeeWithdrawnEventsResponse {
-  repeated io.candysea.candymint.v1.message.FeeWithdrawEvent feeWithdrawnEvents = 1;
+message ListFeeWithdrawnDetailsResponse {
+  repeated io.candysea.candymint.v1.message.FeeWithdrawDetail feeWithdrawnDetails = 1;
   int64 total = 2;
 }
