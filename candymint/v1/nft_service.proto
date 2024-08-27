@@ -45,7 +45,6 @@ message ListNftIdsResponse {
   int32 total = 2;
 }
 
-
 message ListNFTsRequest {
   string collection_name = 1;
   int32 limit = 2;
@@ -65,8 +64,6 @@ message GetNFTRequest {
   string token_id = 3;
   string chain_id = 4;
 }
-
-
 
 message GetMintPermitRequest {
   string collection_id = 1;

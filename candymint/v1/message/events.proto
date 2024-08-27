@@ -10,6 +10,7 @@ option java_package = "io.candysea.candymint.v1.message";
 
 message FeeDetailsEvent {
   string token_id = 1;
+  // TODO: sol price event
   string price = 2;
   string chain_id = 3;
   string contract = 4;
