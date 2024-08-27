@@ -56,7 +56,7 @@ message Collection {
   bool on_chain_storage = 20;
 
   // evm
-  string emv_author_address = 21;
+  string evm_author_address = 21;
   string evm_contract_address = 22;
   string evm_contract_tx_hash = 23;
   string mint_fee_recipient_address = 24;
