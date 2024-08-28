@@ -9,12 +9,6 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/messag
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1.message";
 
-enum CollectionTemplateType {
-  TYPE_UNSPECIFIED = 0;
-  DEFAULT = 1;
-  PNG_COMPOSITE = 2;
-  SVG_COMPOSITE = 3;
-}
 // TODO：uploadMetadata => return ipfs metadata uri(img => ipfs => ipfs_img_uri => json => ipfs_json ) aws uri, collection id. cache metadata table . image 大小测试
 // TODO: get cache metadata table
 // img md5 aws ipfs
@@ -28,12 +22,19 @@ enum CollectionTemplateType {
 // contract_uri update  , sol update uri
 
 message Collection {
+  enum TemplateType {
+    TYPE_UNSPECIFIED = 0;
+    DEFAULT = 1;
+    PNG_COMPOSITE = 2;
+    SVG_COMPOSITE = 3;
+  }
+
   string id = 1;
   string name = 2;
   string display_name = 3;
   string description = 4;
   string cover_uri = 5;
-  CollectionTemplateType type = 6;
+  TemplateType type = 6;
   string github_repository_uri = 7;
   string chain_id = 8;
   // readonly
@@ -68,4 +69,3 @@ message Collection {
   string sol_author_token_account = 26;
   string mint_fee_recipient_account = 27;
 }
-
