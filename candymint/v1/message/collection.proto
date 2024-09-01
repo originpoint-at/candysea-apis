@@ -29,6 +29,11 @@ message Collection {
     SVG_COMPOSITE = 3;
   }
 
+  enum OnChainStorage {
+    UNSPECIFIED = 0;
+    IPFS = 1;
+    ARWEAVE = 2;
+  }
   string id = 1;
   string name = 2;
   string display_name = 3;
@@ -54,7 +59,7 @@ message Collection {
   google.protobuf.Timestamp create_time = 17;
   bool is_paused = 18;
   string pause_announcement = 19;
-  bool on_chain_storage = 20;
+  OnChainStorage on_chain_storage = 20;
 
   // evm
   string evm_author_address = 21;
