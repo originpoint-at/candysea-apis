@@ -59,7 +59,7 @@ message Collection {
   google.protobuf.Timestamp create_time = 17;
   bool is_paused = 18;
   string pause_announcement = 19;
-  OnChainStorageType on_chain_storage = 20;
+  OnChainStorageType on_chain_storage_type = 20;
 
   // evm
   string evm_author_address = 21;
