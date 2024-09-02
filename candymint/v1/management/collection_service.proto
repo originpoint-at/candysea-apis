@@ -70,7 +70,7 @@ message UpdateCollectionRequest {
   string cover_file_id = 4;
   string github_repository_uri = 5;
   string github_access_token = 6;
-  io.candysea.candymint.v1.message.Collection.OnChainStorageType on_chain_storage_type = 7;
+  io.candysea.candymint.v1.message.Collection.StorageType storage_type = 7;
 }
 
 message ListContractsRequest {
