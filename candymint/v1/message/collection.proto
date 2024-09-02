@@ -29,7 +29,7 @@ message Collection {
     SVG_COMPOSITE = 3;
   }
 
-  enum OnChainStorageType {
+  enum StorageType {
     UNSPECIFIED = 0;
     IPFS = 1;
     ARWEAVE = 2;
