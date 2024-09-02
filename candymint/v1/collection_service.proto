@@ -47,7 +47,7 @@ message ListMintDetailsRequest {
 }
 
 message ListMintDetailsResponse {
-  repeated io.candysea.candymint.v1.message.MintDetail mintDetails = 1;
+  repeated io.candysea.candymint.v1.message.MintDetail mint_details = 1;
   int64 total = 2;
 }
 
