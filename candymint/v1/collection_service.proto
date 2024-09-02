@@ -58,6 +58,6 @@ message ListFeeWithdrawnDetailsRequest {
 }
 
 message ListFeeWithdrawnDetailsResponse {
-  repeated io.candysea.candymint.v1.message.FeeWithdrawDetail feeWithdrawnDetails = 1;
+  repeated io.candysea.candymint.v1.message.FeeWithdrawDetail fee_withdrawn_details = 1;
   int64 total = 2;
 }
