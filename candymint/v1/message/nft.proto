@@ -16,7 +16,7 @@ message Nft {
   string collection_id = 4;
   string collection_name = 5;
   string collection_display_name = 6;
-  candymint.v1.message.Collection.TemplateType collection_template_type = 7;
+  candymint.v1.message.Collection.Type collection_type = 7;
   string collection_cover_uri = 8;
   // TODO: sol mint price evt ?
   string mint_price = 9;

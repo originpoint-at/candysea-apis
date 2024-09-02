@@ -22,7 +22,7 @@ option java_package = "io.candysea.candymint.v1.message";
 // contract_uri update  , sol update uri
 
 message Collection {
-  enum TemplateType {
+  enum Type {
     TYPE_UNSPECIFIED = 0;
     DEFAULT = 1;
     PNG_COMPOSITE = 2;
@@ -39,7 +39,7 @@ message Collection {
   string display_name = 3;
   string description = 4;
   string cover_uri = 5;
-  TemplateType type = 6;
+  Type type = 6;
   string github_repository_uri = 7;
   string chain_id = 8;
   // readonly
@@ -65,12 +65,12 @@ message Collection {
   string evm_author_address = 21;
   string evm_contract_address = 22;
   string evm_contract_tx_hash = 23;
-  string mint_fee_recipient_address = 24;
+  string evm_mint_fee_recipient_address = 24;
 
   // sol
   // sol system account
   string sol_author_account = 25;
   // sol token token account
   string sol_author_token_account = 26;
-  string mint_fee_recipient_account = 27;
+  string sol_mint_fee_recipient_account = 27;
 }
