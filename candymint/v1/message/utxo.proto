@@ -12,5 +12,5 @@ message Utxo {
   int64 block_height = 3;
   string tx_hash = 4;
   int32 output_index = 5;
-  string script_pubkey = 6;
+  string script_pub_key = 6;
 }

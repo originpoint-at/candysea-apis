@@ -9,7 +9,18 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/messag
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1.message";
 
-// next_id: 25
+// TODO：uploadMetadata => return ipfs metadata uri(img => ipfs => ipfs_img_uri => json => ipfs_json ) aws uri, collection id. cache metadata table . image 大小测试
+// TODO: get cache metadata table
+// img md5 aws ipfs
+
+// prepare construct metadata
+// image
+// create collection
+// (only for solana) string metadata_uri =   // => image uri  contract_uri | metadata_uri // ipfs:// aws://  couch db
+// cover_uri > ipfs 拼接 json > ipfs  TODO: upload cover and create metadata (external_url: xxx) key:"" value:""
+// create collection
+// contract_uri update  , sol update uri
+
 message Collection {
   enum Type {
     TYPE_UNSPECIFIED = 0;
@@ -17,35 +28,49 @@ message Collection {
     PNG_COMPOSITE = 2;
     SVG_COMPOSITE = 3;
   }
+
+  enum StorageType {
+    STORAGE_TYPE_UNSPECIFIED = 0;
+    IPFS = 1;
+    ARWEAVE = 2;
+  }
   string id = 1;
-  // readonly, generated from display_name
   string name = 2;
   string display_name = 3;
   string description = 4;
   string cover_uri = 5;
-  string author = 6;
-  Type type = 7;
-  string github_repository_uri = 8;
+  Type type = 6;
+  string github_repository_uri = 7;
+  string chain_id = 8;
   // readonly
-  string chain_id = 9;
+  string price = 9;
   // readonly
-  string contract_address = 10;
+  int64 max_supply = 10;
   // readonly
-  string price = 11;
+  int64 total_supply = 11;
   // readonly
-  int64 max_supply = 12;
-  int64 total_supply = 22;
-  int64 score = 23;
-  int64 stop = 24;
-  Release active_release = 13;
-  Release next_release = 14;
-  // only for author
-  Release latest_release = 15;
-  google.protobuf.Timestamp create_time = 16;
-  string contract_tx_hash = 17;
-  string inscription_order_id = 18;
-  string mint_fee_recipient = 19;
-  bool is_paused = 20;
-  string pause_announcement = 21;
-  bool on_chain_storage = 25;
+  int64 score = 12;
+  // readonly
+  int64 stop = 13;
+  Release active_release = 14;
+  Release next_release = 15;
+  // visible only for author
+  Release latest_release = 16;
+  google.protobuf.Timestamp create_time = 17;
+  bool is_paused = 18;
+  string pause_announcement = 19;
+  StorageType storage_type = 20;
+
+  // evm
+  string evm_author_address = 21;
+  string evm_contract_address = 22;
+  string evm_contract_tx_hash = 23;
+  string evm_mint_fee_recipient_address = 24;
+
+  // sol
+  // sol system account
+  string sol_author_account = 25;
+  // sol token token account
+  string sol_author_token_account = 26;
+  string sol_mint_fee_recipient_account = 27;
 }
