@@ -14,8 +14,7 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
-
-service NftService{
+service NftService {
   rpc ListNftIds(ListNftIdsRequest) returns (ListNftIdsResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (io.candysea.candymint.v1.message.Nft) {}
@@ -25,8 +24,11 @@ service NftService{
 // just for Custom collection
 message ListNftIdsRequest {
   enum Type {
+    // only for DEFAULT template type
     TYPE_UNSPECIFIED = 0;
+    // only for DEFAULT template type
     AVAILABLE = 1;
+
     MINTED = 2;
   }
   string collection_id = 1;
@@ -66,6 +68,7 @@ message GetNFTRequest {
 
 message GetMintPermitRequest {
   string collection_id = 1;
+  // only require for evm collection
   string release_id = 2;
   string image_id = 3;
   string image_hash = 4;
@@ -75,7 +78,12 @@ message GetMintPermitRequest {
 
 message GetMintPermitResponse {
   string signature = 1;
+  // only for evm collection
   string base64_payload = 2;
+  // only for evm collection
   string traits = 3;
+  // only for evm collection
   int64 timestamp = 4;
+  // only for solana collection
+  string image_metadata_uri = 5;
 }
