@@ -73,4 +73,5 @@ message Collection {
   // sol token token account
   string sol_author_token_account = 26;
   string sol_mint_fee_recipient_account = 27;
+  string sol_project_account  = 28;
 }
