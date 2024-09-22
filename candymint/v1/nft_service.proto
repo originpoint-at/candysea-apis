@@ -86,4 +86,12 @@ message GetMintPermitResponse {
   int64 timestamp = 4;
   // only for solana collection
   string image_metadata_uri = 5;
+  // only for solana collection
+  string name = 6;
+  // only for solana collection
+  string symbol = 7;
+  // only for solana collection
+  string hex_image_id_digest = 8;
+  // only for solana collection
+  string sol_project_account_pub_key = 9;
 }
