@@ -98,4 +98,6 @@ message GetMintPermitResponse {
   string hex_msg = 10;
   // only for solana collection
   string sol_data_signer_pub_key = 11;
+  // only for solana collection
+  string description = 12;
 }
