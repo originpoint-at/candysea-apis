@@ -9,17 +9,6 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/messag
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1.message";
 
-// TODO：uploadMetadata => return ipfs metadata uri(img => ipfs => ipfs_img_uri => json => ipfs_json ) aws uri, collection id. cache metadata table . image 大小测试
-// TODO: get cache metadata table
-// img md5 aws ipfs
-
-// prepare construct metadata
-// image
-// create collection
-// (only for solana) string metadata_uri =   // => image uri  contract_uri | metadata_uri // ipfs:// aws://  couch db
-// cover_uri > ipfs 拼接 json > ipfs  TODO: upload cover and create metadata (external_url: xxx) key:"" value:""
-// create collection
-// contract_uri update  , sol update uri
 
 message Collection {
   enum Type {
@@ -74,4 +63,5 @@ message Collection {
   string sol_author_token_account = 26;
   string sol_mint_fee_recipient_account = 27;
   string sol_project_account  = 28;
+  string sol_collection_mint_account = 29;
 }

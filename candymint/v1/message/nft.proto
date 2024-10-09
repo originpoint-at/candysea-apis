@@ -18,7 +18,6 @@ message Nft {
   string collection_display_name = 6;
   candymint.v1.message.Collection.Type collection_type = 7;
   string collection_cover_uri = 8;
-  // TODO: sol mint price evt ?
   string mint_price = 9;
   google.protobuf.Timestamp mint_time = 10;
 
@@ -27,11 +26,17 @@ message Nft {
   string evm_collection_contract_address = 12;
 
   // solana
+  // item related
+  // item minter token account
+  string sol_minter_token_account = 13;
+  // item mint account
+  string sol_mint_account = 14;
+
+  // collection related
   // system account
-  string sol_collection_author_account = 13;
-  // token account
-  string sol_author_token_account = 14;
-  string sol_collection_mint_account = 15;
+  string sol_collection_author_account = 15;
+  // collection mint account
+  string sol_collection_mint_account = 16;
 }
 
 message NftAttribute {
