@@ -51,8 +51,8 @@ message NftContract {
 
 message Metadata {
   enum Status {
-    UNKNOWN = 0;
-    PENDING = 1;
+    PENDING = 0;
+    PINNING = 1;
     COMPLETED = 2;
     FAILED = 3;
   }
