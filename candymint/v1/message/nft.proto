@@ -58,9 +58,8 @@ message NftContract {
 message Metadata {
   enum Status {
     PENDING = 0;
-    PINNING = 1;
-    COMPLETED = 2;
-    FAILED = 3;
+    COMPLETED = 1;
+    FAILED = 2;
   }
   string image_uri = 1;
   string metadata_uri = 2;
