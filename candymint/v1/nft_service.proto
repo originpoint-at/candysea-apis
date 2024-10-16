@@ -77,27 +77,21 @@ message GetMintPermitRequest {
 }
 
 message GetMintPermitResponse {
+  // common
   string signature = 1;
+  string metadata_uri_or_image = 2;
+  int64 token_id = 3;
+
   // only for evm collection
-  string base64_payload = 2;
-  // only for evm collection
-  string traits = 3;
-  // only for evm collection
-  int64 timestamp = 4;
-  // only for solana collection
-  string image_metadata_uri = 5;
+  string traits = 4;
+  int64 timestamp = 5;
+
   // only for solana collection
   string name = 6;
-  // only for solana collection
   string symbol = 7;
-  // only for solana collection
-  bytes image_id_digest = 8;
-  // only for solana collection
-  string sol_project_account_pub_key = 9;
-  // only for solana collection
-  bytes message = 10;
-  // only for solana collection
-  bytes sol_data_signer_pub_key = 11;
-  // only for solana collection
-  string description = 12;
+  string description = 8;
+  bytes image_id_digest = 9;
+  string sol_project_account_pub_key = 10;
+  bytes sol_sign_message = 11;
+  bytes sol_data_signer_pub_key = 12;
 }
