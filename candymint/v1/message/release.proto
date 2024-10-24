@@ -19,8 +19,8 @@ message Release {
   string id = 1;
   string version = 2;
   Status status = 3;
-  string wasm_uri = 4;
-  string wasm_es_wrapper_uri = 5;
+  // collection manifest file uri in s3
+  string collection_manifest_uri = 4;
   string commit_hash = 6;
   google.protobuf.Timestamp create_time = 7;
   google.protobuf.Timestamp publish_time = 8;
