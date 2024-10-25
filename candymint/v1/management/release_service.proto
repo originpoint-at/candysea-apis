@@ -20,8 +20,7 @@ service ReleaseService {
 
 message CreateReleaseRequest {
   string collection_id = 1;
-  string githubRef = 2;
-  bool skip_check_template = 3;
+  bool skip_check_template = 2;
 }
 
 message PublishReleaseRequest {

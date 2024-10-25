@@ -17,7 +17,7 @@ message Release {
     PROCESS_FAILED = 4;
   }
   string id = 1;
-  string version = 2;
+  string engine_version = 2;
   Status status = 3;
   // collection manifest file uri in s3
   string collection_manifest_uri = 4;
