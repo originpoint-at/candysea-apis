@@ -9,13 +9,13 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/messag
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1.message";
 
-
 message Collection {
   enum Type {
     TYPE_UNSPECIFIED = 0;
     DEFAULT = 1;
     PNG_COMPOSITE = 2;
     SVG_COMPOSITE = 3;
+    SPINE_COMPOSITE = 4;
   }
   enum StorageType {
     STORAGE_TYPE_UNSPECIFIED = 0;
@@ -62,6 +62,6 @@ message Collection {
   // sol token token account
   string sol_author_token_account = 26;
   string sol_mint_fee_recipient_account = 27;
-  string sol_project_account  = 28;
+  string sol_project_account = 28;
   string sol_collection_mint_account = 29;
 }
