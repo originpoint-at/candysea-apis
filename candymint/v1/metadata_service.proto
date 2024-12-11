@@ -22,6 +22,8 @@ service MetadataService {
 message UploadMetadataRequest {
   string collection_id = 1;
   string image_id = 2;
+  // required for composite template
+  optional string nft_hash = 3;
 }
 
 message GetMetadataRequest {
