@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1.management;
+
+import "candymint/v1/message/marketing.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/management";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1.management";
+
+// auth universal account required
+service MarketingService {
+  rpc CreateChannel(CreateChannelRequest) returns (io.candysea.candymint.v1.message.Channel) {}
+  rpc ListChannels(ListChannelsRequest) returns (ListChannelsResponse) {}
+}
+
+message CreateChannelRequest {
+  string description = 1;
+}
+
+message ListChannelsRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+}
+
+message ListChannelsResponse {
+  repeated io.candysea.candymint.v1.message.Channel channels = 1;
+  int32 total = 2;
+}
