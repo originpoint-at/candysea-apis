@@ -6,7 +6,7 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/messag
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1.message";
 
-message Channel {
+message  Channel {
   string description = 1;
-  string uuid = 2;
+  string channelId = 2;
 }
