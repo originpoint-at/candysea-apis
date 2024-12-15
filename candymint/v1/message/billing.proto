@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1.message;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/message";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1.message";
+
+message GpuConsumption {
+  int64 consumedPoints = 1;
+  google.protobuf.Timestamp create_time = 2;
+}
+
+message StorageItem {
+  string ipfsHash = 1;
+  int64 dataSize = 2;
+  string itemType = 3;
+  google.protobuf.Timestamp create_time = 4;
+}
