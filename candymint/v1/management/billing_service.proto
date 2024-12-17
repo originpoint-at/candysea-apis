@@ -12,15 +12,15 @@ option java_package = "io.candysea.candymint.v1.management";
 
 // auth universal account required
 service BillingService {
-  rpc ListGpuConsumptions(ListGpuConsumptionsRequest) returns (ListGpuConsumptionsResponse) {}
+  rpc ListPointTxLogs(ListPointTxLogsRequest) returns (ListPointTxLogsResponse) {}
 }
 
-message ListGpuConsumptionsRequest {
+message ListPointTxLogsRequest {
   int32 limit = 1;
   int32 offset = 2;
 }
 
-message ListGpuConsumptionsResponse {
-  repeated io.candysea.candymint.v1.message.GpuConsumption gpuConsumptions = 1;
+message ListPointTxLogsResponse {
+  repeated io.candysea.candymint.v1.message.PointTxLog txLogs = 1;
   int32 total = 2;
 }

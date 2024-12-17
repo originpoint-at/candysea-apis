@@ -10,12 +10,25 @@ option java_package = "io.candysea.candymint.v1.message";
 
 message GpuConsumption {
   int64 consumedPoints = 1;
-  google.protobuf.Timestamp create_time = 2;
+  string collection_id = 2;
+  string image_id = 3;
+  google.protobuf.Timestamp create_time = 4;
 }
 
-message StorageItem {
-  string ipfsHash = 1;
-  int64 dataSize = 2;
-  string itemType = 3;
-  google.protobuf.Timestamp create_time = 4;
+message IpfsConsumption {
+  int64 consumedPoints = 1;
+  string collection_id = 2;
+  string image_id = 3;
+  string ipfs_hash = 4;
+  google.protobuf.Timestamp create_time = 5;
+}
+
+message PointTxLog {
+  string id = 1;
+  int64 consumedPoints = 2;
+  google.protobuf.Timestamp create_time = 3;
+  oneof Detail {
+    GpuConsumption gpu = 4;
+    IpfsConsumption ipfs = 5;
+  }
 }
