@@ -35,7 +35,7 @@ message ListChannelsResponse {
 }
 
 message GetChannelRequest {
-  string id = 1;
+  string uuid = 1;
 }
 
 message UpdateChannelRequest {
