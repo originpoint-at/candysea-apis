@@ -14,6 +14,7 @@ option java_package = "io.candysea.candymint.v1.management";
 service MarketingService {
   rpc CreateChannel(CreateChannelRequest) returns (io.candysea.candymint.v1.message.Channel) {}
   rpc ListChannels(ListChannelsRequest) returns (ListChannelsResponse) {}
+  rpc GetChannel(GetChannelRequest) returns (io.candysea.candymint.v1.message.Channel) {}
 }
 
 message CreateChannelRequest {
