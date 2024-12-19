@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1.management;
+
+import "candymint/v1/message/billing.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/management";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1.management";
+
+// auth universal account required
+service BillingService {
+  rpc ListPointTxLogs(ListPointTxLogsRequest) returns (ListPointTxLogsResponse) {}
+}
+
+message ListPointTxLogsRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+}
+
+message ListPointTxLogsResponse {
+  repeated io.candysea.candymint.v1.message.PointTxLog txLogs = 1;
+  int32 total = 2;
+}
