@@ -1,8 +1,6 @@
-version: v1
+version: v2
 plugins:
-  - plugin: es
+  - local: protoc-gen-es
     out: generated/es
-  - plugin: connect-es
-    out: generated/es
-  - plugin: connect-query
+  - local: protoc-gen-connect-query
     out: generated/es

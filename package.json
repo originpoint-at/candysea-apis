@@ -5,10 +5,14 @@
     "gen:es": "buf generate . --template buf.gen.es.yaml",
     "gen:backend": "buf generate . --template buf.gen.backend.yaml"
   },
+  "dependencies": {
+    "@bufbuild/buf": "^1.47.2",
+    "@bufbuild/protoc-gen-es": "2.2.2",
+    "@connectrpc/protoc-gen-connect-query": "^2.0.0"
+  },
+  "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387",
   "devDependencies": {
-    "@bufbuild/buf": "^1.28.1",
-    "@bufbuild/protoc-gen-es": "^1.6.0",
-    "@connectrpc/protoc-gen-connect-es": "^1.2.0",
-    "@connectrpc/protoc-gen-connect-query": "^1.1.2"
+    "@connectrpc/connect": "^2.0.0",
+    "@connectrpc/connect-web": "^2.0.0"
   }
 }
