@@ -14,6 +14,9 @@ option java_package = "io.candysea.candymint.v1.management";
 service MarketingService {
   rpc CreateChannel(CreateChannelRequest) returns (io.candysea.candymint.v1.message.Channel) {}
   rpc ListChannels(ListChannelsRequest) returns (ListChannelsResponse) {}
+  rpc GetChannel(GetChannelRequest) returns (io.candysea.candymint.v1.message.Channel) {}
+  rpc UpdateChannel(UpdateChannelRequest) returns (io.candysea.candymint.v1.message.Channel) {}
+  rpc DeleteChannel(DeleteChannelRequest) returns (google.protobuf.Empty) {}
 }
 
 message CreateChannelRequest {
@@ -29,4 +32,18 @@ message ListChannelsRequest {
 message ListChannelsResponse {
   repeated io.candysea.candymint.v1.message.Channel channels = 1;
   int32 total = 2;
+}
+
+message GetChannelRequest {
+  string id = 1;
+}
+
+message UpdateChannelRequest {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message DeleteChannelRequest {
+  string id = 1;
 }
