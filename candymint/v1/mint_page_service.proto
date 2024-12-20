@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1;
+
+import "candymint/v1/message/ming_page.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1";
+
+service MintPageService {
+  rpc GetMintPage(GetMintPageRequest) returns (io.candysea.candymint.v1.message.MintPage) {}
+}
+
+message GetMintPageRequest {
+  string mint_page_id = 1;
+}
+
+message GetCollectionCapabilitiesRequest {
+  io.candysea.candymint.v1.message.MintPage mingPage = 1;
+}
