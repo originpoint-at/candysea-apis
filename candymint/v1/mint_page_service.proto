@@ -17,7 +17,3 @@ service MintPageService {
 message GetMintPageRequest {
   string mint_page_id = 1;
 }
-
-message GetCollectionCapabilitiesRequest {
-  io.candysea.candymint.v1.message.MintPage mingPage = 1;
-}
