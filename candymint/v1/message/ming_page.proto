@@ -10,19 +10,19 @@ option java_package = "io.candysea.candymint.v1.message";
 
 message MintPage {
   string id = 1;
-  string title = 3;
-  string description = 4;
-  string copyright = 5;
-  string keywords = 6;
-  string x_link = 7;
-  string telegram_link = 8;
-  string discord_link = 9;
-  int32 collections_count = 10;
-  string logo = 11;
+  string title = 2;
+  string description = 3;
+  string copyright = 4;
+  string keywords = 5;
+  string x_link = 6;
+  string telegram_link = 7;
+  string discord_link = 8;
+  string logo = 9;
+  bool default = 10;
   enum Status {
     INACTIVE = 0;
     ACTIVE = 1;
   }
-  Status status = 12;
-  bool default = 13;
+  Status status = 11;
+  int32 collections_count = 12;
 }
