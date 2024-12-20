@@ -25,4 +25,5 @@ message MintPage {
   }
   Status status = 11;
   int32 collections_count = 12;
+  google.protobuf.Timestamp create_time = 13;
 }
