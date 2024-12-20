@@ -15,5 +15,5 @@ service MintPageService {
 }
 
 message GetMintPageRequest {
-  string mint_page_id = 1;
+  string id = 1;
 }
