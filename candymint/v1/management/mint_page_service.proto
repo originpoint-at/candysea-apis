@@ -40,13 +40,14 @@ message CreateMintPageRequest {
 }
 
 message UpdateMintPageRequest {
-  string title = 1;
-  string description = 2;
-  string copyright = 3;
-  string keywords = 4;
-  string x_link = 5;
-  string telegram_link = 6;
-  string discord_link = 7;
-  bool default = 8;
-  io.candysea.candymint.v1.message.MintPage.Status status = 9;
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  string copyright = 4;
+  string keywords = 5;
+  string x_link = 6;
+  string telegram_link = 7;
+  string discord_link = 8;
+  bool default = 9;
+  io.candysea.candymint.v1.message.MintPage.Status status = 10;
 }
