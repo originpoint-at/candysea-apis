@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package io.candysea.candymint.v1.message;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/message";
+option java_multiple_files = true;
+option java_package = "io.candysea.candymint.v1.message";
+
+message MintPage {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  string copyright = 4;
+  string keywords = 5;
+  string x_link = 6;
+  string telegram_link = 7;
+  string discord_link = 8;
+  string logo = 9;
+  bool default = 10;
+  enum Status {
+    INACTIVE = 0;
+    ACTIVE = 1;
+  }
+  Status status = 11;
+  int32 collections_count = 12;
+}

@@ -10,7 +10,6 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/manage
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1.management";
 
-
 service MarketingService {
   // auth universal account required
   rpc CreateChannel(CreateChannelRequest) returns (io.candysea.candymint.v1.message.Channel) {}
@@ -20,8 +19,6 @@ service MarketingService {
   rpc UpdateChannel(UpdateChannelRequest) returns (io.candysea.candymint.v1.message.Channel) {}
   // auth universal account required
   rpc DeleteChannel(DeleteChannelRequest) returns (google.protobuf.Empty) {}
-
-  rpc GetChannel(GetChannelRequest) returns (io.candysea.candymint.v1.message.Channel) {}
 }
 
 message CreateChannelRequest {
@@ -37,10 +34,6 @@ message ListChannelsRequest {
 message ListChannelsResponse {
   repeated io.candysea.candymint.v1.message.Channel channels = 1;
   int32 total = 2;
-}
-
-message GetChannelRequest {
-  string uuid = 1;
 }
 
 message UpdateChannelRequest {
