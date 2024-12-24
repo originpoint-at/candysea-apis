@@ -40,7 +40,7 @@ message ListCollectionsWithMintPageRequest {
   string mint_page_id = 1;
   int32 limit = 2;
   int32 offset = 3;
-  string chain_id = 4;
+  bool show_testnet = 4;
 }
 
 message ListCollectionsResponse {
