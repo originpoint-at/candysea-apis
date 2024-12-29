@@ -52,6 +52,9 @@ message ListMintDetailsRequest {
   int32 limit = 1;
   int32 offset = 2;
   string collection_id = 3;
+  string chain_id = 4;
+  string contract_address = 5;
+  optional string channel = 6;
 }
 
 message ListMintDetailsResponse {
