@@ -54,7 +54,7 @@ message ListMintDetailsRequest {
   string collection_id = 3;
   string chain_id = 4;
   string contract_address = 5;
-  optional string channel = 6;
+  optional string channel_uuid = 6;
 }
 
 message ListMintDetailsResponse {
