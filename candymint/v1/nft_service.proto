@@ -19,7 +19,6 @@ service NftService {
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (io.candysea.candymint.v1.message.Nft) {}
   rpc GetMintPermit(GetMintPermitRequest) returns (GetMintPermitResponse) {}
-  rpc GetMintedCount(GetMintedCountRequest) returns (GetMintedCountResponse) {}
 }
 
 // just for Custom collection
@@ -53,6 +52,7 @@ message ListNFTsRequest {
   int32 offset = 3;
   string chain_id = 4;
   string address = 5;
+  optional string suite = 6;
 }
 
 message ListNFTsResponse {
@@ -95,14 +95,4 @@ message GetMintPermitResponse {
   string sol_project_account_pub_key = 10;
   bytes sol_sign_message = 11;
   bytes sol_data_signer_pub_key = 12;
-}
-
-message GetMintedCountRequest {
-  string chain_id = 1;
-  string nft_contract_address = 2;
-  string suite = 3;
-}
-
-message GetMintedCountResponse {
-  int32 minted_count = 1;
 }
