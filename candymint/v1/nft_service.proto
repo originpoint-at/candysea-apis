@@ -51,8 +51,9 @@ message ListNFTsRequest {
   int32 limit = 2;
   int32 offset = 3;
   string chain_id = 4;
-  string address = 5;
-  optional string suite = 6;
+  string owner_address = 5;
+  string contract_address = 6;
+  optional string suite = 7;
 }
 
 message ListNFTsResponse {
