@@ -20,7 +20,8 @@ message Nft {
   string collection_cover_uri = 8;
   string mint_price = 9;
   google.protobuf.Timestamp mint_time = 10;
-  string image_id = 11 ;
+  string image_id = 11;
+  string suite = 18;
 
   // evm
   string evm_collection_author_address = 12;
