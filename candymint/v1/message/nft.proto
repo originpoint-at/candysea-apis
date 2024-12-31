@@ -71,3 +71,13 @@ message Metadata {
   string cache_metadata = 6;
   string cache_image_uri = 7;
 }
+
+message NftInfo {
+  string id = 1;
+  string contract_address = 2;
+  string chain_id = 3;
+  string token_id = 4;
+  string image_id = 5;
+  string spine_zip_ipfs_hash = 6;
+  string spine_zip_file_uri = 7;
+}
