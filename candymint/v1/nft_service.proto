@@ -15,6 +15,7 @@ option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
 service NftService {
+  rpc ListNftInfos(ListNftInfoRequest) returns (ListNftInfoResponse) {}
   rpc ListNftIds(ListNftIdsRequest) returns (ListNftIdsResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (io.candysea.candymint.v1.message.Nft) {}
@@ -51,7 +52,9 @@ message ListNFTsRequest {
   int32 limit = 2;
   int32 offset = 3;
   string chain_id = 4;
-  string address = 5;
+  string owner_address = 5;
+  string contract_address = 6;
+  optional string suite = 7;
 }
 
 message ListNFTsResponse {
@@ -94,4 +97,16 @@ message GetMintPermitResponse {
   string sol_project_account_pub_key = 10;
   bytes sol_sign_message = 11;
   bytes sol_data_signer_pub_key = 12;
+}
+
+message ListNftInfoRequest {
+  string account_id = 1;
+  // cursor_id is a hex format number, where id > cursor_id  limit xxx
+  string cursor_id = 2;
+  int32 limit = 3;
+}
+
+message ListNftInfoResponse {
+  repeated io.candysea.candymint.v1.message.NftInfo nft_infos = 1;
+  int32 total = 2;
 }

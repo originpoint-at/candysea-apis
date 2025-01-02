@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package io.candysea.candymint.v1.message;
 
+import "candymint/v1/message/marketing.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1/message";
@@ -19,6 +20,8 @@ message MintDetail {
   string evm_contract_address = 6;
   string evm_origin_address = 7;
   string sol_mint_account = 8;
+
+  io.candysea.candymint.v1.message.Channel channel = 9;
 }
 
 // only for evm

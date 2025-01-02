@@ -20,7 +20,8 @@ message Nft {
   string collection_cover_uri = 8;
   string mint_price = 9;
   google.protobuf.Timestamp mint_time = 10;
-  string image_id = 11 ;
+  string image_id = 11;
+  string suite = 18;
 
   // evm
   string evm_collection_author_address = 12;
@@ -69,4 +70,14 @@ message Metadata {
   // only for collection
   string cache_metadata = 6;
   string cache_image_uri = 7;
+}
+
+message NftInfo {
+  string id = 1;
+  string contract_address = 2;
+  string chain_id = 3;
+  string token_id = 4;
+  string image_id = 5;
+  string spine_zip_ipfs_hash = 6;
+  string spine_zip_file_uri = 7;
 }
