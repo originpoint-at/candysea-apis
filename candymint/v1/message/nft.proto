@@ -80,4 +80,5 @@ message NftInfo {
   string image_id = 5;
   string spine_zip_ipfs_hash = 6;
   string spine_zip_file_uri = 7;
+  string metadata_ipfs_hash = 8;
 }
