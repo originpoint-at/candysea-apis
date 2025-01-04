@@ -81,4 +81,7 @@ message NftInfo {
   string spine_zip_ipfs_hash = 6;
   string spine_zip_file_uri = 7;
   string metadata_ipfs_hash = 8;
+  string suite = 9;
+  io.candysea.candymint.v1.message.Collection.Type type = 10;
+  io.candysea.candymint.v1.message.Collection.StorageType storage_type = 11;
 }
