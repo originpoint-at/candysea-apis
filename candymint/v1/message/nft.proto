@@ -96,7 +96,7 @@ message NftTransferEvent {
   google.protobuf.Timestamp block_timestamp = 6;
   string block_hash = 7;
   int64 block_number = 8;
-  int64 transaction_hash = 9;
+  string transaction_hash = 9;
   int32 transaction_index = 10;
   int32 log_index = 11;
 }
