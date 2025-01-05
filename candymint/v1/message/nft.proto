@@ -84,4 +84,19 @@ message NftInfo {
   string suite = 9;
   io.candysea.candymint.v1.message.Collection.Type type = 10;
   io.candysea.candymint.v1.message.Collection.StorageType storage_type = 11;
+  string owner_address = 12;
+}
+
+message NftTransferEvent {
+  string chain_id = 1;
+  string contract_address = 2;
+  string from_address = 3;
+  string to_address = 4;
+  string token_id = 5;
+  google.protobuf.Timestamp block_timestamp = 6;
+  string block_hash = 7;
+  int64 block_number = 8;
+  int64 transaction_hash = 9;
+  int32 transaction_index = 10;
+  int32 log_index = 11;
 }

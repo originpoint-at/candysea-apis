@@ -18,6 +18,7 @@ service NftService {
   rpc ListNftInfos(ListNftInfoRequest) returns (ListNftInfoResponse) {}
   rpc ListNftIds(ListNftIdsRequest) returns (ListNftIdsResponse) {}
   rpc ListNFTs(ListNFTsRequest) returns (ListNFTsResponse) {}
+  rpc ListTransferEvents(ListTransferEventsRequest) returns (ListTransferEventsResponse) {}
   rpc GetNFT(GetNFTRequest) returns (io.candysea.candymint.v1.message.Nft) {}
   rpc GetMintPermit(GetMintPermitRequest) returns (GetMintPermitResponse) {}
 }
@@ -108,5 +109,16 @@ message ListNftInfoRequest {
 
 message ListNftInfoResponse {
   repeated io.candysea.candymint.v1.message.NftInfo nft_infos = 1;
+  int32 total = 2;
+}
+
+message ListTransferEventsRequest {
+  string account_id = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+}
+
+message ListTransferEventsResponse {
+  repeated io.candysea.candymint.v1.message.NftTransferEvent transfer_events = 1;
   int32 total = 2;
 }
