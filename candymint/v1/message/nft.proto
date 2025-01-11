@@ -85,6 +85,7 @@ message NftInfo {
   io.candysea.candymint.v1.message.Collection.Type type = 10;
   io.candysea.candymint.v1.message.Collection.StorageType storage_type = 11;
   string owner_address = 12;
+  string channel = 13;
 }
 
 message NftTransferEvent {
