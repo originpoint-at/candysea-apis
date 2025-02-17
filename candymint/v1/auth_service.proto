@@ -8,9 +8,10 @@ option go_package = "github.com/originpoint-at/candysea-apis/candymint/v1";
 option java_multiple_files = true;
 option java_package = "io.candysea.candymint.v1";
 
-service AuthService{
+service AuthService {
   rpc LoginWithWallet(LoginWithWalletRequest) returns (LoginWithWalletResponse) {}
   rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {}
+  rpc LoginWithApiKey(LoginWithApiKeyRequest) returns (LoginWithApiKeyResponse) {}
 }
 
 message LoginWithWalletRequest {
@@ -30,6 +31,16 @@ message RefreshTokenResponse {
 }
 
 message LoginWithWalletResponse {
+  string access_token = 1;
+  string refresh_token = 2;
+}
+
+message LoginWithApiKeyRequest {
+  string account_id = 1;
+  string api_key = 2;
+}
+
+message LoginWithApiKeyResponse {
   string access_token = 1;
   string refresh_token = 2;
 }
